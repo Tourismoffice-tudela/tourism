@@ -1,0 +1,79 @@
+:root {
+    --main-green: #16503a;
+    --accent-green: #2e8c52;
+    --gold: #ffcc57;
+    --white: #fff;
+}
+
+body {
+    background: #f5fdf7;
+}
+
+/* Section & Heading */
+#accommodation {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+    text-align: center;
+}
+
+#accommodation h2 {
+    color: var(--main-green);
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+}
+
+/* Card List */
+.accommodation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.3rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.accommodation-card {
+    background: #f6fff8;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #16503a15;
+    padding: 1.1rem 1.2rem;
+    min-width: 260px;
+    max-width: 350px;
+    flex: 1 1 300px;
+    text-align: left;
+    transition: transform 0.16s, box-shadow 0.16s;
+}
+.accommodation-card:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 8px 32px #16503a22;
+}
+.accommodation-card h3 {
+    color: #16503a;
+    margin-bottom: 0.3rem;
+    font-size: 1.15rem;
+}
+.accommodation-card p {
+    color: #376b55;
+    font-size: 1.01rem;
+    margin: 0.14rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    #accommodation {
+        padding: 1rem;
+    }
+    .accommodation-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .accommodation-card {
+        min-width: 0;
+        width: 97vw;
+        max-width: 97vw;
+    }
+}
