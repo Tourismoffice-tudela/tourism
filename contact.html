@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="logo-title">
       <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
@@ -25,6 +26,7 @@
     </nav>
   </header>
 
+  <!-- ===== MAIN CONTENT ===== -->
   <main>
     <section id="contact">
       <h2>Contact Us</h2>
@@ -32,29 +34,38 @@
         Have questions or need assistance? Fill out the form below and we'll get back to you soon.
       </p>
 
-      <!-- Contact Form -->
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
+      <!-- Contact Form using Formspree -->
+      <form action="https://formspree.io/f/xvgbvknd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send</button>
       </form>
 
       <!-- Facebook Link Section -->
       <div class="social-link">
         <a href="https://www.facebook.com/profile.php?id=61578855943615" target="_blank" rel="noopener noreferrer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" 
-               alt="Facebook" class="facebook-icon">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" 
+            alt="Facebook" 
+            class="facebook-icon">
           Follow us on Facebook
         </a>
       </div>
+
+      <!-- Note about privacy and free plan -->
+      <p style="text-align:center; font-size:0.9rem; margin-top:1.5rem; color:#555;">
+        *Your messages are sent securely and delivered directly to our Gmail inbox.
+      </p>
     </section>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
     &copy; 2025 Tudela Tourism Office. All rights reserved.
   </footer>
 
+  <!-- ===== SCRIPTS ===== -->
   <script src="main.js"></script>
 </body>
 </html>
