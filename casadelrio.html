@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casa Del Rio – Tudela Tourism Office</title>
+
+  <!-- Reuse your global styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Reuse the Bukilat slider & detail styles -->
+  <link rel="stylesheet" href="bukilat.css" />
+
+  <style>
+    /* Page wrapper for accommodation detail */
+    #accommodation-detail {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+    }
+    #accommodation-detail h2 { margin-bottom: 1rem; }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--accent-green);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover { text-decoration: underline; color: var(--gold); }
+
+    /* Book Now button below map */
+    .book-link {
+      text-align: center;
+      margin-top: 0.6rem;
+    }
+    .book-btn {
+      display: inline-block;
+      background: var(--accent-green);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .book-btn:hover {
+      background: var(--gold);
+      color: var(--main-green);
+    }
+    .book-btn:active { transform: translateY(1px); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo" />
+      <h1>Tudela Tourism Office</h1>
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#spots">Tourist Spots</a></li>
+        <li><a href="accommodation.html" class="active">Accommodation</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="history.html">History</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="accommodation-detail">
+      <a href="accommodation.html" class="back-link">&larr; Back to Accommodation</a>
+      <h2>Casa Del Rio</h2>
+
+      <!-- Image Slider -->
+      <div class="slider-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVtyJlNi0WHuR12MNkjBo622P81xg2qpo-SQ&s"
+             alt="Casa Del Rio Exterior"
+             class="slider-img active"
+             loading="lazy" />
+        <img src="https://pix10.agoda.net/hotelImages/31637128/0/8ae4ffa8786228d6f9785b8111b3e29d.jpeg?s=414x232&ar=16x9"
+             alt="Casa Del Rio Rooms"
+             class="slider-img"
+             loading="lazy" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9bHFEkM3rln2B5cFmJMNvXsPpZRgA-MfKCQ&s"
+             alt="Casa Del Rio Facilities"
+             class="slider-img"
+             loading="lazy" />
+
+        <div class="slider-controls">
+          <button class="slider-btn prev" aria-label="Previous image">&#8592;</button>
+          <button class="slider-btn next" aria-label="Next image">&#8594;</button>
+        </div>
+      </div>
+
+      <!-- Details -->
+      <div class="bukilat-details">
+        <h3>📍 About Casa Del Rio</h3>
+        <p>
+          Casa Del Rio is a peaceful riverside stay in the heart of Tudela, Camotes — great for
+          families, couples, and groups who want a relaxing base close to the town center and top spots.
+        </p>
+
+        <h4>✨ Highlights</h4>
+        <ul>
+          <li>Riverside cottages with scenic views</li>
+          <li>Cozy ambiance and private function spaces</li>
+          <li>Convenient location near the poblacion</li>
+        </ul>
+
+        <h4>ℹ️ Visitor Info</h4>
+        <table class="bukilat-table">
+          <tr>
+            <td><strong>Location</strong></td>
+            <td>Puertobello, Tudela, Camotes Islands, Cebu</td>
+          </tr>
+          <tr>
+            <td><strong>Room Rates</strong></td>
+            <td>₱1,500 – ₱3,500 per night (sample range; confirm directly)</td>
+          </tr>
+          <tr>
+            <td><strong>Facilities</strong></td>
+            <td>Air-conditioned rooms, dining area, private cottages, event space</td>
+          </tr>
+          <tr>
+            <td><strong>Contact</strong></td>
+            <td>+63 912 345 6789</td>
+          </tr>
+          <tr>
+            <td><strong>Best Time to Visit</strong></td>
+            <td>Dry season (Dec–May) for best outdoor conditions</td>
+          </tr>
+        </table>
+
+        <!-- Map -->
+        <p class="map-link">
+          <a href="https://www.google.com/maps/search/?api=1&query=Casa+Del+Rio+Tudela+Camotes" target="_blank" rel="noopener noreferrer">
+            📍 Locate on Google Map
+          </a>
+        </p>
+
+        <!-- Book Now BELOW the map -->
+        <p class="book-link">
+          <a
+            class="book-btn"
+            href="https://www.agoda.com/casa-delrio-resort-camotes/hotel/cebu-ph.html?cid=1844104&amp;ds=rYbr5A4bdoleLliU"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Book Now →</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 Tudela Tourism Office. All rights reserved.</footer>
+  <script src="main.js"></script>
+</body>
+</html>

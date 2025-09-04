@@ -1,0 +1,411 @@
+:root {
+    --main-green: #16503a;
+    --accent-green: #2e8c52;
+    --light-green: #c4e1cb;
+    --gold: #ffcc57;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--light-green);
+    color: var(--main-green);
+    min-height: 100vh;
+}
+
+header {
+    background: var(--main-green);
+    color: var(--white);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    object-fit: cover;
+}
+.muni-logo {
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid #fff84f;
+    object-fit: cover;
+    margin-left: 12px;
+    box-shadow: 0 2px 10px #0001;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover {
+    color: var(--gold);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 2rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.2rem;
+    cursor: pointer;
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    text-align: center;
+    padding: 60px 5vw 40px 5vw;
+    background: linear-gradient(135deg, #198754 70%, #0c2e24 100%);
+    color: var(--white);
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(22, 80, 58, 0.13);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#hero h2 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #38d39f;
+    text-shadow: 0 2px 8px #0002;
+}
+#hero p {
+    margin-bottom: 18px;
+    color: #e2fff5;
+    font-size: 1.2rem;
+}
+#hero .cta-btn {
+    margin-top: 16px;
+    padding: 15px 38px;
+    font-size: 1.3rem;
+    background: var(--gold);
+    color: var(--main-green);
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    cursor: pointer;
+}
+#hero .cta-btn:hover {
+    background: var(--accent-green);
+    color: var(--white);
+}
+
+/* --- MAIN CONTENT --- */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Section Titles */
+h2 {
+    color: var(--accent-green);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* About Section */
+#about p {
+    text-align: center;
+    color: #313e32;
+    font-size: 1.13rem;
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Tourist Spots */
+.spots-list {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.spot-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    max-width: 310px;
+    width: 100%;
+}
+.spot-card-link:focus .spot-card,
+.spot-card-link:hover .spot-card {
+    box-shadow: 0 12px 30px rgba(34, 34, 34, 0.18);
+    transform: translateY(-8px) scale(1.025);
+}
+
+.spot-card {
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(34, 34, 34, 0.09);
+    overflow: hidden;
+    width: 310px;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1.5px solid #eee;
+    transition: transform 0.18s;
+    position: relative;
+    cursor: pointer;
+}
+.spot-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(34, 34, 34, 0.16);
+}
+.spot-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+.spot-card h3 {
+    color: var(--main-green);
+    margin: 15px 0 7px 0;
+    font-size: 1.1rem;
+}
+.spot-card p {
+    font-size: 0.98rem;
+    padding: 0 0.8rem;
+    color: #376b55;
+}
+
+/* Learn More overlay */
+.learn-more {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(30, 80, 58, 0.9);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 0;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s, transform 0.3s;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 5;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.spot-card:hover .learn-more,
+.spot-card:focus-within .learn-more {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Always show learn more on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .spot-card .learn-more {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 12px;
+}
+#contact input,
+#contact textarea {
+    padding: 12px;
+    border: 1.5px solid var(--main-green);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    background: #f9fff8;
+}
+#contact textarea {
+    min-height: 80px;
+}
+#contact button {
+    background: var(--accent-green);
+    color: var(--white);
+    padding: 13px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.11rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#contact button:hover {
+    background: var(--gold);
+    color: var(--main-green);
+}
+
+/* --- Social Link Styling --- */
+.social-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.social-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--main-green);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.social-link a:hover {
+  color: var(--accent-green);
+}
+
+.facebook-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* Footer */
+footer {
+    background: var(--main-green);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    border-radius: 10px 10px 0 0;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .spots-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 700px) {
+    main {
+        padding: 1rem;
+    }
+    header h1 {
+        font-size: 1.1rem;
+    }
+    .logo {
+        height: 36px;
+        width: 36px;
+    }
+    .muni-logo {
+        height: 30px;
+        width: 30px;
+        margin-left: 5px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+        background: var(--main-green);
+        padding: 10px 0;
+        border-radius: 8px;
+        display: none;
+        position: absolute;
+        top: 65px;
+        width: 100%;
+        left: 0;
+        z-index: 99;
+    }
+    nav ul.active {
+        display: flex;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .logo-title {
+        gap: 7px;
+    }
+    #hero {
+        padding: 36px 2vw 20px 2vw;
+        font-size: 1rem;
+        border-radius: 18px;
+    }
+    .spot-card, .spot-card-link {
+        width: 97vw;
+        min-width: 0;
+        max-width: 97vw;
+    }
+    .spot-card img {
+        height: 140px;
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 5px 0;
+    }
+    #hero h2 {
+        font-size: 1.18rem;
+    }
+    h2 {
+        font-size: 1.13rem;
+    }
+    main {
+        padding: 0.5rem;
+    }
+    .spot-card {
+        border-radius: 12px;
+    }
+}
