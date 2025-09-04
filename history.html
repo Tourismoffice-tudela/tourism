@@ -1,51 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF‑8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tudela Tourism Office ‑ History</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tudela Tourism Office – History</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* Full-page background for this history page */
+    body.history-page {
+      background: url("historybg.jpg") center/cover fixed no-repeat;
+    }
+
+    /* Dark overlay card so text stays readable over the photo */
+    .history-wrap {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    #history h2 {
+      color: #ffcc57; /* gold */
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    #history p {
+      line-height: 1.7;
+      font-size: 1.06rem;
+      margin: 0.7rem 0;
+      color: #f6fff8;
+    }
+
+    #history a {
+      color: #ffcc57;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    #history a:hover {
+      color: #2e8c52; /* accent green */
+    }
+
+    /* small spacing fix below header */
+    main { padding-top: 1.2rem; }
+  </style>
 </head>
-<body>
+<body class="history-page">
   <header>
     <div class="logo-title">
-      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo" />
       <h1>Tudela Tourism Office</h1>
-      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
     </div>
     <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
     <nav id="main-nav">
       <ul>
         <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#spots">Tourist Spots</a></li>
-                <li><a href="accommodation.html">Accommodation</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="history.html">History</a></li>
+        <li><a href="index.html#spots">Tourist Spots</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="history.html" class="active">History</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
     <section id="history">
-      <h2>History</h2>
-      <p>
-       
-      </p>
-      Tudela is a fifth class town and is one of the four municipalities in the Camotes group of island. The Camotes group of islands. The Camotes group, which includes the island of Leyte to the east, Cebu to the weast and farther south, bohol. Camotes, especially Pilar island, is geographically closer to Ormoc City in Leyte than to Danao City in Cebu. But the entire Camotes is administratively under Cebu Province and belongs to its fifth congressional district, which also includes Danao City and the towns of Compostela, Carmen and Sogod in the mainland.
-     Tudela shares with the municipality of Poro of the island also known as Poro. The other camotes towns are San Francisco in Pacijan island and Pilar and Ponson island. Poro used to be the mother municipality until Tudela split from it and was declared a town from the Spanish colonial government in 1892. The two towns were momentarily merged again under the American colonial regime but were finally separated in 1910.
-     The name Poro is widely believed to be a corruption of the Waray word puro or island (pulo in the Cebuano language). Waray is spoken in Samar and a portion of Leyte island, a point used in bolstering the theory that Camotes’ earl settlers were from those places. Residents of Poro town themselves speak a distinct language that is a mixture of Waray, Iilonggo, Bol-anon, Cebuano and even Surigaonon, with a unique use of the letter “z” in some words. Unlike Poro, however residents of Tudela largerly speak the Cebuano language.
-     Tudela, or at leat the area in what is now the poblacion, used to be known as Tag-anito, an obvious reference to the practice of the early villagers of worshipping anitos or spirits. When the area was declared a visita by a Spanish authorities, it retained the name, even until it was declared a town in May 1892. In August of the same year, however; town resident, at the instigation of Recollect priest Ramon.  
+      <div class="history-wrap">
+        <h2>History</h2>
 
-      <p>
-        <strong>Learn more about the history of Tudela:</strong>
-        <a href="https://drive.google.com/file/d/1ZTjqdqx31tTX_SGq8dEG1PSAa3L7Q2MK/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          View full document
-        </a>
-      </p>
+        <p>Tudela is a fifth class town and is one of the four municipalities in the Camotes group of island. The Camotes group of islands. The Camotes group, which includes the island of Leyte to the east, Cebu to the weast and farther south, bohol. Camotes, especially Pilar island, is geographically closer to Ormoc City in Leyte than to Danao City in Cebu. But the entire Camotes is administratively under Cebu Province and belongs to its fifth congressional district, which also includes Danao City and the towns of Compostela, Carmen and Sogod in the mainland.</p>
+
+        <p>Tudela shares with the municipality of Poro of the island also known as Poro. The other camotes towns are San Francisco in Pacijan island and Pilar and Ponson island. Poro used to be the mother municipality until Tudela split from it and was declared a town from the Spanish colonial government in 1892. The two towns were momentarily merged again under the American colonial regime but were finally separated in 1910.</p>
+
+        <p>The name Poro is widely believed to be a corruption of the Waray word puro or island (pulo in the Cebuano language). Waray is spoken in Samar and a portion of Leyte island, a point used in bolstering the theory that Camotes’ earl settlers were from those places. Residents of Poro town themselves speak a distinct language that is a mixture of Waray, Iilonggo, Bol-anon, Cebuano and even Surigaonon, with a unique use of the letter “z” in some words. Unlike Poro, however residents of Tudela largerly speak the Cebuano language.</p>
+
+        <p>Tudela, or at leat the area in what is now the poblacion, used to be known as Tag-anito, an obvious reference to the practice of the early villagers of worshipping anitos or spirits. When the area was declared a visita by a Spanish authorities, it retained the name, even until it was declared a town in May 1892. In August of the same year, however; town resident, at the instigation of Recollect priest Ramon.</p>
+
+        <p><strong>Learn more about the history of Tudela:</strong>
+          <a href="https://drive.google.com/file/d/1ZTjqdqx31tTX_SGq8dEG1PSAa3L7Q2MK/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            View full document
+          </a>
+        </p>
+      </div>
     </section>
   </main>
+
   <footer>
     &copy; 2025 Tudela Tourism Office. All rights reserved.
   </footer>
+
   <script src="main.js"></script>
 </body>
 </html>
