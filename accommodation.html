@@ -4,40 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Accommodation – Tudela Tourism Office</title>
+
+  <!-- Global Styles -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Accommodation Page Styles -->
   <link rel="stylesheet" href="accommodation.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.jpg" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Find the best accommodations in Tudela, Camotes Islands. Explore local resorts, inns, and vacation spots for your stay." />
+  <meta name="keywords" content="Tudela, Camotes, Accommodation, Resorts, Hotels, Casa Del Rio, BSR Pool Resort" />
+  <meta name="author" content="Tudela Tourism Office" />
 </head>
 <body>
   <!-- ===== HEADER ===== -->
   <header class="site-header">
-  <div class="logo-title">
-    <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
-    <h1>Tudela Tourism Office</h1>
-    <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
-  </div>
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+      <h1>Tudela Tourism Office</h1>
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+    </div>
 
-  <!-- 3-slash / hamburger button -->
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-  </button>
+    <!-- Mobile Hamburger Button -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-  <nav id="main-nav">
-    <ul>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="touristspot.html">Tourist Spots</a></li>
-      <li><a href="accommodation.html">Accommodation</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="history.html">History</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
+    <!-- Navigation Menu -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="touristspots.html">Tourist Spots</a></li>
+        <li><a href="accommodation.html" class="active">Accommodation</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- ===== MAIN CONTENT ===== -->
   <main>
     <section id="accommodation">
       <h2>Accommodation in Tudela</h2>
+      <p style="text-align:center; max-width:650px; margin:0 auto 1.5rem auto;">
+        Discover comfortable and relaxing places to stay while visiting Tudela. Whether you're looking for seaside cottages or family-friendly resorts, we’ve got you covered.
+      </p>
 
       <div class="accommodation-list">
 
@@ -53,7 +69,7 @@
             <div class="acc-content">
               <h3>Casa Del Rio</h3>
               <p><strong>Location:</strong> Poblacion, Tudela, Camotes Islands, Cebu</p>
-              <p><strong>Highlights:</strong> Sea side view, relaxing atmosphere, perfect for families and groups</p>
+              <p><strong>Highlights:</strong> Seaside view, relaxing atmosphere, perfect for families and groups</p>
               <p><strong>Facilities:</strong> Air-conditioned rooms, dining area, private cottages, event space</p>
               <p><strong>Contact:</strong> +63 0917 635 1604</p>
             </div>
@@ -77,6 +93,23 @@
           </div>
         </div>
 
+        <!-- SAMPLE ADDITIONAL ACCOMMODATION -->
+        <div class="accommodation-card">
+          <img
+            class="acc-img"
+            src="https://images.unsplash.com/photo-1501117716987-c8e2a7eafbd6"
+            alt="Sample Accommodation"
+            loading="lazy"
+          />
+          <div class="acc-content">
+            <h3>Island View Inn</h3>
+            <p><strong>Location:</strong> Barangay Villahermosa, Tudela, Camotes Islands, Cebu</p>
+            <p><strong>Highlights:</strong> Scenic sunset views and affordable rates</p>
+            <p><strong>Facilities:</strong> Fan rooms, garden area, free Wi-Fi</p>
+            <p><strong>Contact:</strong> +63 998 765 4321</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -86,7 +119,7 @@
     &copy; 2025 Tudela Tourism Office. All rights reserved.
   </footer>
 
+  <!-- ===== SCRIPTS ===== -->
   <script src="main.js"></script>
 </body>
 </html>
-
