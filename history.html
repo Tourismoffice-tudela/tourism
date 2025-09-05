@@ -51,24 +51,30 @@
   </style>
 </head>
 <body class="history-page">
-  <header>
-    <div class="logo-title">
-      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo" />
-      <h1>Tudela Tourism Office</h1>
-      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
-    </div>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#spots">Tourist Spots</a></li>
-        <li><a href="accommodation.html">Accommodation</a></li>
-        <li><a href="shop.html">shop</a></li>
-        <li><a href="history.html">History</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header class="site-header">
+  <div class="logo-title">
+    <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+    <h1>Tudela Tourism Office</h1>
+    <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+  </div>
+
+  <!-- 3-slash / hamburger button -->
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#spots">Tourist Spots</a></li>
+      <li><a href="accommodation.html">Accommodation</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <main>
     <section id="history">
@@ -99,5 +105,3 @@
   <script src="main.js"></script>
 </body>
 </html>
-
-
