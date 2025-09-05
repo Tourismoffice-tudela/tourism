@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop – Tudela Tourism Office</title>
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* SHOP SECTION WITH BACKGROUND */
+    #shop {
+      position: relative;
+      min-height: 100vh;
+      background: url("shopbg.png") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    /* overlay for readability */
+    #shop::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35); /* dark overlay */
+      z-index: 0;
+    }
+
+    /* clickable container */
+    .shop-link {
+      position: relative;
+      z-index: 1;
+      display: block;
+      max-width: 400px;
+      width: 90%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .shop-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    }
+
+    .shop-link img {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+    }
+
+    /* text instruction below image */
+    .shop-text {
+      text-align: center;
+      margin-top: 1rem;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      font-size: 1.2rem;
+      background: rgba(0,0,0,0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+
+    /* mobile adjustments */
+    @media (max-width: 700px) {
+      #shop {
+        padding: 1.5rem 1rem;
+        background-attachment: scroll;
+      }
+      .shop-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo" />
+      <h1>Tudela Tourism Office</h1>
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#spots">Tourist Spots</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li> 
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section id="shop">
+      <!-- Clickable image linking to your Facebook post -->
+      <a href="https://www.facebook.com/share/p/1BC7SvwMK4/" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="shop-link">
+        <img src="shopbuy.jpg" alt="View our souvenir collection on Facebook">
+      </a>
+
+      <div class="shop-text">
+        Click the image to see our full souvenir collection on Facebook!
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>&copy; 2025 Tudela Tourism Office. All rights reserved.</footer>
+  <script src="main.js"></script>
+</body>
+</html>
