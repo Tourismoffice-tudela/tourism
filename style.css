@@ -7,552 +7,314 @@
    COLOR VARIABLES
    ========================================= */
 :root {
-    --main-green: #16503a;
-    --accent-green: #2e8c52;
-    --light-green: #c4e1cb;
-    --gold: #ffcc57;
-    --white: #fff;
+  --main-green: #16503a;
+  --accent-green: #2e8c52;
+  --light-green: #c4e1cb;
+  --gold: #ffcc57;
+  --white: #fff;
 }
 
 /* =========================================
    GLOBAL RESET
    ========================================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: var(--light-green);
-    color: var(--main-green);
-    min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--light-green);
+  color: var(--main-green);
+  min-height: 100vh;
 }
 
 main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 h2 {
-    color: var(--accent-green);
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    text-align: center;
-    letter-spacing: 1px;
+  color: var(--accent-green);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 /* =========================================
    HEADER & LOGOS
    ========================================= */
 header.site-header {
-    background: var(--main-green);
-    color: var(--white);
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: var(--main-green);
+  color: var(--white);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  /* FLEX container para dili mag-overlap */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center ang brand block */
 }
 
+/* Brand block (logo + title + muni logo) */
 .logo-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  min-width: 0;
+  max-width: 90vw;
 }
 
-.logo {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 2px solid var(--gold);
-    object-fit: cover;
-}
-
+.logo,
 .muni-logo {
-    height: 52px;
-    width: 52px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 2px solid #fff84f;
-    object-fit: cover;
-    margin-left: 12px;
-    box-shadow: 0 2px 10px #0001;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: var(--white);
+  object-fit: cover;
+}
+
+.logo { border: 2px solid var(--gold); }
+.muni-logo {
+  border: 2px solid #fff84f;
+  box-shadow: 0 2px 10px #0001;
 }
 
 .logo-title h1 {
-    font-family: "Poppins", "Montserrat", "Segoe UI", Arial, sans-serif;
-    font-weight: 800;
-    letter-spacing: 1px;
-    font-size: 2rem;
-    line-height: 1.1;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins","Montserrat","Segoe UI",Arial,sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  line-height: 1.1;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+  /* prevent text overflow on mobile */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* =========================================
-   NAVIGATION DESKTOP
+   NAVIGATION (DESKTOP)
    ========================================= */
-nav {
-    text-align: center;
-}
+nav { text-align: center; }
 
 nav ul {
-    list-style: none;
-    display: inline-flex;
-    gap: 30px;
+  list-style: none;
+  display: inline-flex;
+  gap: 30px;
 }
 
 nav ul li a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
 }
 
 nav ul li a:hover,
-nav ul li a.active {
-    color: var(--gold);
-}
+nav ul li a.active { color: var(--gold); }
 
 /* =========================================
-   HAMBURGER (3 SLASH) MENU
+   HAMBURGER (3-SLASH) BUTTON
    ========================================= */
 .nav-toggle {
-    display: none; /* visible only on mobile */
-    background: transparent;
-    border: 0;
-    width: 44px;
-    height: 44px;
-    position: absolute;
-    right: 1rem;
-    top: 0.9rem;
-    cursor: pointer;
-    z-index: 20;
+  display: none;
+  background: transparent;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  right: 1rem;
+  top: 0.9rem;
+  cursor: pointer;
+  z-index: 60;
 }
 
 .nav-toggle .bar {
-    display: block;
-    width: 26px;
-    height: 3px;
-    margin: 5px auto;
-    background: var(--white);
-    border-radius: 2px;
-    transition: transform .25s, opacity .25s;
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px auto;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform .25s, opacity .25s;
 }
 
 /* Animate to X when open */
-.nav-toggle.open .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.nav-toggle.open .bar:nth-child(2) {
-    opacity: 0;
-}
-.nav-toggle.open .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
+.nav-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.open .bar:nth-child(2) { opacity: 0; }
+.nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* =========================================
    HERO SECTION
    ========================================= */
 #hero {
-    text-align: center;
-    padding: 60px 5vw 40px 5vw;
-    background: linear-gradient(135deg, #198754 70%, #0c2e24 100%);
-    color: var(--white);
-    border-radius: 30px;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 30px rgba(22, 80, 58, 0.13);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  padding: 60px 5vw 40px 5vw;
+  background: linear-gradient(135deg, #198754 70%, #0c2e24 100%);
+  color: var(--white);
+  border-radius: 30px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 30px rgba(22,80,58,0.13);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #hero h2 {
-    font-size: 2.4rem;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    color: #38d39f;
-    text-shadow: 0 2px 8px #0002;
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--gold); /* ✅ Text color yellow */
 }
 
 #hero p {
-    margin-bottom: 18px;
-    color: #e2fff5;
-    font-size: 1.2rem;
+  max-width: 640px;
+  margin: 0 auto 18px;
+  font-size: 1.05rem;
+  opacity: .95;
 }
 
+.cta-btn,
 #hero .cta-btn {
-    margin-top: 16px;
-    padding: 15px 38px;
-    font-size: 1.3rem;
-    background: var(--gold);
-    color: var(--main-green);
-    border: none;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.2s;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
-    cursor: pointer;
+  display: inline-block;
+  background: var(--gold);
+  color: var(--main-green);
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .12s ease, background .2s ease;
 }
 
-#hero .cta-btn:hover {
-    background: var(--accent-green);
-    color: var(--white);
+.cta-btn:hover {
+  background: #ffd970;
+  transform: translateY(-1px);
 }
 
 /* =========================================
-   ABOUT SECTION
+   ABOUT
    ========================================= */
-#about p {
-    text-align: center;
-    color: #313e32;
-    font-size: 1.13rem;
-    margin-bottom: 2.5rem;
-    margin-top: 0.5rem;
-    line-height: 1.6;
-}
+#about { max-width: 950px; margin: 2rem auto; }
+#about p { line-height: 1.8; font-size: 1.05rem; }
 
 /* =========================================
-   TOURIST SPOTS
+   SPOTS GRID
    ========================================= */
-.spots-list {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+#spots { max-width: 1000px; margin: 2rem auto; }
+.spots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 1.4rem;
 }
-
-.spot-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    max-width: 310px;
-    width: 100%;
-}
-
-.spot-card-link:focus .spot-card,
-.spot-card-link:hover .spot-card {
-    box-shadow: 0 12px 30px rgba(34, 34, 34, 0.18);
-    transform: translateY(-8px) scale(1.025);
-}
-
 .spot-card {
-    background: var(--white);
-    border-radius: 18px;
-    box-shadow: 0 4px 16px rgba(34, 34, 34, 0.09);
-    overflow: hidden;
-    width: 310px;
-    text-align: center;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-    border: 1.5px solid #eee;
-    transition: transform 0.18s;
-    position: relative;
-    cursor: pointer;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s, box-shadow .2s;
 }
-
-.spot-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 24px rgba(34, 34, 34, 0.16);
-}
-
-.spot-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
-}
-
-.spot-card h3 {
-    color: var(--main-green);
-    margin: 15px 0 7px 0;
-    font-size: 1.1rem;
-}
-
-.spot-card p {
-    font-size: 0.98rem;
-    padding: 0 0.8rem;
-    color: #376b55;
-}
-
-/* Learn More overlay */
-.learn-more {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: rgba(30, 80, 58, 0.9);
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    padding: 14px 0;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.3s, transform 0.3s;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    z-index: 5;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-}
-
-.spot-card:hover .learn-more,
-.spot-card:focus-within .learn-more {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Always show learn more on mobile */
-@media (hover: none) and (pointer: coarse) {
-    .spot-card .learn-more {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+.spot-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+.spot-card img { width: 100%; height: 180px; object-fit: cover; }
+.spot-content { padding: 1rem; }
+.spot-content h3 { color: var(--main-green); margin-bottom: .4rem; }
 
 /* =========================================
-   CONTACT FORM
-   ========================================= */
-#contact form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
-    gap: 12px;
-}
-
-#contact input,
-#contact textarea {
-    padding: 12px;
-    border: 1.5px solid var(--main-green);
-    border-radius: 6px;
-    font-size: 1rem;
-    font-family: inherit;
-    resize: vertical;
-    background: #f9fff8;
-}
-
-#contact textarea {
-    min-height: 80px;
-}
-
-#contact button {
-    background: var(--accent-green);
-    color: var(--white);
-    padding: 13px 0;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.11rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-#contact button:hover {
-    background: var(--gold);
-    color: var(--main-green);
-}
-
-/* Social Links */
-.social-link {
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.social-link a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--main-green);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.2s;
-}
-
-.social-link a:hover {
-    color: var(--accent-green);
-}
-
-.facebook-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-/* =========================================
-   CONTACT PAGE BACKGROUND
+   CONTACT PAGE
    ========================================= */
 #contact {
-    position: relative;
-    background: url("contactbg.jpg") center center/cover no-repeat;
-    padding: 3rem 1rem;
-    border-radius: 18px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    min-height: 100vh;
+  background: url('contactbg.jpg') center/cover no-repeat;
+  padding: 2rem 1rem;
+  color: var(--white);
+  text-align: center;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 2rem auto;
+  position: relative;
 }
 
-#contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-    border-radius: 18px;
-    z-index: 1;
+#contact h2 { color: var(--gold); margin-bottom: 1rem; }
+
+#contact form {
+  display: flex; flex-direction: column;
+  gap: .8rem; max-width: 420px; margin: 0 auto;
 }
 
-#contact h2,
-#contact p,
-#contact form,
-#contact .social-link {
-    position: relative;
-    z-index: 2;
-    color: #fff;
+#contact input, #contact textarea {
+  padding: 10px; border: none; border-radius: 8px; font-size: 1rem;
+  background: rgba(255,255,255,0.9); color: #000;
 }
 
-#contact input,
-#contact textarea {
-    background: rgba(255,255,255,0.85);
-    color: #000;
-}
-
-#contact textarea::placeholder,
-#contact input::placeholder {
-    color: #333;
-}
+#contact textarea::placeholder, #contact input::placeholder { color: #333; }
 
 #contact button {
-    background: var(--gold);
-    color: var(--main-green);
+  padding: 10px 14px; background: var(--gold); color: var(--main-green);
+  border: none; border-radius: 8px; font-weight: 800; cursor: pointer;
+  transition: background .2s ease;
 }
+#contact button:hover { background: var(--accent-green); color: #fff; }
 
-#contact button:hover {
-    background: var(--accent-green);
-    color: #fff;
-}
+#contact .social-link { position: relative; z-index: 2; color: #fff; }
 
 /* =========================================
    FOOTER
    ========================================= */
 footer {
-    background: var(--main-green);
-    color: var(--white);
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 3rem;
-    border-radius: 10px 10px 0 0;
-    font-size: 1rem;
+  background: var(--main-green);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  border-radius: 10px 10px 0 0;
 }
 
 /* =========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE
    ========================================= */
 @media (max-width: 900px) {
-    .spots-list {
-        flex-direction: column;
-        align-items: center;
-    }
+  #hero h2 { font-size: 2rem; }
 }
 
-@media (max-width: 700px) {
-    /* Show hamburger, hide desktop menu */
-    .nav-toggle {
-        display: block;
-    }
+@media (max-width: 760px) {
+  /* make logos & title smaller to avoid overlap */
+  .logo, .muni-logo { width: 44px; height: 44px; }
+  .logo-title { gap: 10px; max-width: calc(100vw - 110px); }
+  .logo-title h1 { font-size: 1.35rem; }
 
-    #main-nav ul {
-        position: absolute;
-        left: 0;
-        top: 64px;
-        width: 100%;
-        flex-direction: column;
-        gap: 0;
-        background: var(--main-green);
-        padding: 8px 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height .25s ease;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        display: flex;
-    }
-
-    #main-nav.open ul {
-        max-height: 320px;
-    }
-
-    #main-nav ul li a {
-        display: block;
-        padding: 12px 18px;
-        text-align: left;
-        border-top: 1px solid #ffffff1a;
-    }
-
-    .logo-title {
-        gap: 7px;
-    }
-
-    #hero {
-        padding: 36px 2vw 20px 2vw;
-        font-size: 1rem;
-        border-radius: 18px;
-    }
-
-    .spot-card, .spot-card-link {
-        width: 97vw;
-        max-width: 97vw;
-    }
-
-    .spot-card img {
-        height: 140px;
-    }
-
-    #contact {
-        padding: 2rem 1rem;
-        border-radius: 0;
-        min-height: auto;
-    }
-
-    #contact::before {
-        border-radius: 0;
-    }
-
-    #contact h2 {
-        font-size: 1.5rem;
-    }
+  /* convert nav to drawer */
+  .nav-toggle { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 10px;
+    background: var(--main-green);
+    border-radius: 10px;
+    padding: .8rem 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    z-index: 40;
+  }
+  nav.open { display: block; }
+  nav ul { display: flex; flex-direction: column; gap: .8rem; }
 }
 
-@media (max-width: 500px) {
-    header {
-        padding: 5px 0;
-    }
-
-    #hero h2 {
-        font-size: 1.18rem;
-    }
-
-    h2 {
-        font-size: 1.13rem;
-    }
-
-    main {
-        padding: 0.5rem;
-    }
-
-    .spot-card {
-        border-radius: 12px;
-    }
+@media (max-width: 460px) {
+  .logo, .muni-logo { width: 38px; height: 38px; }
+  .logo-title h1 { font-size: 1.12rem; }
+  #hero { padding: 44px 5vw 32px; }
+  #hero h2 { font-size: 1.7rem; }
+  #hero p { font-size: .98rem; }
 }
