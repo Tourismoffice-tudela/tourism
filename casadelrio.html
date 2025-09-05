@@ -54,23 +54,30 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-title">
-      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo" />
-      <h1>Tudela Tourism Office</h1>
-      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
-    </div>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#spots">Tourist Spots</a></li>
-        <li><a href="accommodation.html" class="active">Accommodation</a></li>
-        <li><a href="history.html">History</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="site-header">
+  <div class="logo-title">
+    <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+    <h1>Tudela Tourism Office</h1>
+    <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+  </div>
+
+  <!-- 3-slash / hamburger button -->
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#spots">Tourist Spots</a></li>
+      <li><a href="accommodation.html">Accommodation</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <main>
     <section id="accommodation-detail">
@@ -102,13 +109,13 @@
       <div class="bukilat-details">
         <h3>📍 About Casa Del Rio</h3>
         <p>
-          Casa Del Rio is a peaceful riverside stay in the heart of Tudela, Camotes — great for
-          families, couples, and groups who want a relaxing base close to the town center and top spots.
+          Casa Del Rio is a peaceful seaside stay in the heart of Tudela, Camotes — great for
+          families, couples, and groups who want a relaxing base, top spots of tudela.
         </p>
 
         <h4>✨ Highlights</h4>
         <ul>
-          <li>Riverside cottages with scenic views</li>
+          <li>Seaside cottages with scenic views</li>
           <li>Cozy ambiance and private function spaces</li>
           <li>Convenient location near the poblacion</li>
         </ul>
@@ -161,4 +168,3 @@
   <script src="main.js"></script>
 </body>
 </html>
-
