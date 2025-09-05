@@ -9,24 +9,30 @@
 </head>
 <body>
   <!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo-title">
-      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo" />
-      <h1>Tudela Tourism Office</h1>
-      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
-    </div>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#spots">Tourist Spots</a></li>
-        <li><a href="accommodation.html" class="active">Accommodation</a></li>
-        <li><a href="shop.html">shop</a></li>
-        <li><a href="history.html">History</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="site-header">
+  <div class="logo-title">
+    <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+    <h1>Tudela Tourism Office</h1>
+    <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+  </div>
+
+  <!-- 3-slash / hamburger button -->
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#spots">Tourist Spots</a></li>
+      <li><a href="accommodation.html">Accommodation</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <!-- ===== MAIN CONTENT ===== -->
   <main>
@@ -47,9 +53,9 @@
             <div class="acc-content">
               <h3>Casa Del Rio</h3>
               <p><strong>Location:</strong> Poblacion, Tudela, Camotes Islands, Cebu</p>
-              <p><strong>Highlights:</strong> Riverside view, relaxing atmosphere, perfect for families and groups</p>
+              <p><strong>Highlights:</strong> Sea side view, relaxing atmosphere, perfect for families and groups</p>
               <p><strong>Facilities:</strong> Air-conditioned rooms, dining area, private cottages, event space</p>
-              <p><strong>Contact:</strong> +63 912 345 6789</p>
+              <p><strong>Contact:</strong> +63 0917 635 1604</p>
             </div>
           </div>
         </a>
@@ -83,5 +89,3 @@
   <script src="main.js"></script>
 </body>
 </html>
-
-
