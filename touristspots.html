@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tudela Tourist Spots</title>
+
+  <!-- Main global styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Tourist spots specific styles -->
+  <link rel="stylesheet" href="touristspots.css" />
+  <link rel="icon" href="logo.jpg" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+      <h1>Tudela Tourism Office</h1>
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+    </div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="touristspots.html" class="active">Tourist Spots</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section id="spots-page">
+      <h2>Top Tourist Spots in Tudela</h2>
+      <p class="intro-text">
+        Explore the beautiful attractions Tudela has to offer. From majestic caves to relaxing seaside resorts,
+        there's something for every traveler.
+      </p>
+
+      <div class="spots-grid">
+
+        <!-- Bukilat Cave -->
+        <a href="bukilat.html" class="spot-card">
+          <img src="bukilat.jpg" alt="Bukilat Cave">
+          <div class="spot-content">
+            <h3>Bukilat Cave</h3>
+            <p>Famous for its natural sunlight streaming through the cave's openings and a refreshing tidal pool inside.</p>
+          </div>
+        </a>
+
+        <!-- Casa Del Rio -->
+        <a href="casadelrio.html" class="spot-card">
+          <img src="casadelrio.jpg" alt="Casa Del Rio">
+          <div class="spot-content">
+            <h3>Casa Del Rio</h3>
+            <p>Enjoy a peaceful seaside stay with scenic views, perfect for families, couples, and groups.</p>
+          </div>
+        </a>
+
+        <!-- BSR Pool Resort -->
+        <div class="spot-card">
+          <img src="https://i0.wp.com/cebuinsider.com/wp-content/uploads/2023/07/BSR-Pool-Camotes.jpg?resize=600%2C400" alt="BSR Pool Resort">
+          <div class="spot-content">
+            <h3>BSR Pool Resort</h3>
+            <p>Family-friendly resort with pool, cottages, and breathtaking mountain-sea views.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &copy; 2025 Tudela Tourism Office. All rights reserved.
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="main.js"></script>
+</body>
+</html>
