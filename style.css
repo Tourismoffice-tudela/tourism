@@ -17,15 +17,8 @@
 /* =========================================
    GLOBAL RESET
    ========================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -34,11 +27,7 @@ body {
   min-height: 100vh;
 }
 
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-}
+main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 
 h2 {
   color: var(--accent-green);
@@ -49,9 +38,10 @@ h2 {
 }
 
 /* =========================================
-   HEADER (Tropical Gradient + Scenic Image)
+   HEADER (Tropical gradient + optional image)
    ========================================= */
 header.site-header {
+  /* Gradient first, then optional header image (add header-bg.jpg if you like) */
   background:
     linear-gradient(135deg,
       rgba(22,80,58,0.95) 0%,
@@ -59,7 +49,7 @@ header.site-header {
       rgba(0,188,212,0.92) 100%),
     url('header-bg.jpg') center/cover no-repeat;
   color: var(--white);
-  padding: 10px 12px;
+  padding: 10px 12px 8px;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -71,103 +61,64 @@ header.site-header {
   justify-content: center;
 }
 
-/* Logo container [Logo] Title [Municipal Seal] */
+/* Group holding [logo] Title [seal] */
 .logo-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 12px;              /* tighter look: logos closer to title */
   width: auto;
   text-align: center;
 }
 
-/* Logos */
-.logo,
-.muni-logo {
-  width: 44px;
-  height: 44px;
+/* Logos (left/right) */
+.logo, .muni-logo {
+  width: 44px; height: 44px;
   border-radius: 50%;
   background: var(--white);
   object-fit: cover;
   flex-shrink: 0;
 }
+.logo { border: 2px solid var(--gold); }
+.muni-logo { border: 2px solid #fff84f; box-shadow: 0 2px 10px #0001; }
 
-.logo {
-  border: 2px solid var(--gold);
-}
-
-.muni-logo {
-  border: 2px solid #fff84f;
-  box-shadow: 0 2px 10px #0001;
-}
-
-/* --------- TITLE TEXT --------- */
+/* Center title */
 .logo-title h1 {
   font-family: "Poppins","Montserrat","Segoe UI",Arial,sans-serif;
   font-weight: 800;
-  font-size: 1.9rem;
+  font-size: 1.3rem;
   letter-spacing: 1px;
-  /* Tropical gradient for desktop */
-  background: linear-gradient(90deg, #ffcc57, #fff6d0, #00bcd4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
+  color: var(--white);
   white-space: nowrap;
   text-align: center;
   margin: 0 5px;
   flex: 1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.55);
 }
 
-/* Optional tagline under the title */
-.header-text .tagline {
-  font-size: 0.95rem;
-  color: #fff8c9;
-  margin-top: 2px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,.45);
-  font-style: italic;
-}
-
-/* Hamburger menu button */
+/* Hamburger button (mobile) */
 .nav-toggle {
   display: none;
   background: transparent;
   border: 0;
-  width: 44px;
-  height: 44px;
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  cursor: pointer;
-  z-index: 70;
+  width: 44px; height: 44px;
+  position: absolute; right: 12px; top: 12px;
+  cursor: pointer; z-index: 70;
 }
-
 .nav-toggle .bar {
-  display: block;
-  width: 26px;
-  height: 3px;
-  margin: 5px auto;
-  background: var(--white);
-  border-radius: 2px;
+  display: block; width: 26px; height: 3px; margin: 5px auto;
+  background: var(--white); border-radius: 2px;
   transition: transform .25s, opacity .25s;
 }
-
-.nav-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.nav-toggle.open .bar:nth-child(2) { opacity: 0; }
-.nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.nav-toggle.open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+.nav-toggle.open .bar:nth-child(2){ opacity: 0; }
+.nav-toggle.open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
 
 /* =========================================
-   NAVIGATION MENU
+   NAVIGATION
    ========================================= */
-nav {
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  display: inline-flex;
-  gap: 30px;
-}
-
+nav { text-align: center; }
+nav ul { list-style: none; display: inline-flex; gap: 30px; }
 nav ul li a {
   color: var(--white);
   text-decoration: none;
@@ -177,15 +128,11 @@ nav ul li a {
   transition: color 0.2s, border-color 0.2s;
   border-bottom: 2px solid transparent;
 }
-
 nav ul li a:hover,
-nav ul li a.active {
-  color: #164;
-  border-color: var(--gold);
-}
+nav ul li a.active { color: #164; border-color: var(--gold); }
 
 /* =========================================
-   HERO SECTION
+   HERO
    ========================================= */
 #hero {
   text-align: center;
@@ -197,155 +144,65 @@ nav ul li a.active {
   box-shadow: 0 8px 30px rgba(22,80,58,0.13);
   max-width: 900px;
 }
-
-#hero h2 {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  color: var(--gold);
-}
-
-#hero p {
-  max-width: 640px;
-  margin: 0 auto 18px;
-  font-size: 1.05rem;
-  opacity: .95;
-}
-
-.cta-btn,
-#hero .cta-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--main-green);
-  padding: 12px 22px;
-  border-radius: 30px;
-  font-weight: 800;
-  text-decoration: none;
+#hero h2 { font-size: 2.4rem; margin-bottom: 12px; color: var(--gold); }
+#hero p { max-width: 640px; margin: 0 auto 18px; font-size: 1.05rem; opacity: .95; }
+.cta-btn, #hero .cta-btn {
+  display: inline-block; background: var(--gold); color: var(--main-green);
+  padding: 12px 22px; border-radius: 30px; font-weight: 800; text-decoration: none;
   transition: transform .12s ease, background .2s ease, box-shadow .2s;
   box-shadow: 0 8px 18px rgba(0,0,0,.18);
 }
-
-.cta-btn:hover {
-  background: #ffd970;
-  transform: translateY(-1px);
-}
+.cta-btn:hover { background: #ffd970; transform: translateY(-1px); }
 
 /* =========================================
-   ABOUT SECTION
+   ABOUT
    ========================================= */
-#about {
-  max-width: 950px;
-  margin: 2rem auto;
-}
-
-#about p {
-  line-height: 1.8;
-  font-size: 1.05rem;
-}
+#about { max-width: 950px; margin: 2rem auto; }
+#about p { line-height: 1.8; font-size: 1.05rem; }
 
 /* =========================================
    SPOTS GRID
    ========================================= */
-#spots {
-  max-width: 1000px;
-  margin: 2rem auto;
-}
-
+#spots { max-width: 1000px; margin: 2rem auto; }
 .spots-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 1.4rem;
 }
-
 .spot-card {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
+  background: #fff; border-radius: 14px; overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none; color: inherit;
   transition: transform .2s, box-shadow .2s;
 }
-
-.spot-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.15);
-}
-
-.spot-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.spot-content {
-  padding: 1rem;
-}
-
-.spot-content h3 {
-  color: var(--main-green);
-  margin-bottom: .4rem;
-}
+.spot-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+.spot-card img { width: 100%; height: 180px; object-fit: cover; }
+.spot-content { padding: 1rem; }
+.spot-content h3 { color: var(--main-green); margin-bottom: .4rem; }
 
 /* =========================================
-   CONTACT PAGE
+   CONTACT
    ========================================= */
 #contact {
   background: url('contactbg.jpg') center/cover no-repeat;
-  padding: 2rem 1rem;
-  color: var(--white);
-  text-align: center;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: 2rem auto;
-  position: relative;
+  padding: 2rem 1rem; color: var(--white); text-align: center;
+  border-radius: 12px; max-width: 800px; margin: 2rem auto; position: relative;
 }
-
-#contact h2 {
-  color: var(--gold);
-  margin-bottom: 1rem;
+#contact h2 { color: var(--gold); margin-bottom: 1rem; }
+#contact form { display: flex; flex-direction: column; gap: .8rem; max-width: 420px; margin: 0 auto; }
+#contact input, #contact textarea {
+  padding: 10px; border: none; border-radius: 8px; font-size: 1rem;
+  background: rgba(255,255,255,0.9); color: #000;
 }
-
-#contact form {
-  display: flex;
-  flex-direction: column;
-  gap: .8rem;
-  max-width: 420px;
-  margin: 0 auto;
-}
-
-#contact input,
-#contact textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: rgba(255,255,255,0.9);
-  color: #000;
-}
-
-#contact textarea::placeholder,
-#contact input::placeholder {
-  color: #333;
-}
-
+#contact textarea::placeholder, #contact input::placeholder { color: #333; }
 #contact button {
-  padding: 10px 14px;
-  background: var(--gold);
-  color: var(--main-green);
-  border: none;
-  border-radius: 8px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: background .2s;
+  padding: 10px 14px; background: var(--gold); color: var(--main-green);
+  border: none; border-radius: 8px; font-weight: 800; cursor: pointer; transition: background .2s;
 }
-
-#contact button:hover {
-  background: var(--accent-green);
-  color: #fff;
-}
+#contact button:hover { background: var(--accent-green); color: #fff; }
 
 /* =========================================
-   FOOTER (Deep Tropical Gradient)
+   FOOTER (Deep tropical gradient)
    ========================================= */
 footer {
   background: linear-gradient(90deg, #0c2e24, #198754);
@@ -357,119 +214,47 @@ footer {
   border-radius: 14px 14px 0 0;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
 }
-
-footer a {
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-footer a:hover {
-  color: #ffd970;
-}
+footer a { color: var(--gold); text-decoration: none; font-weight: 600; }
+footer a:hover { color: #ffd970; }
 
 /* =========================================
-   MOBILE STYLES
+   MOBILE
    ========================================= */
 @media (max-width: 760px) {
-  /* Logo adjustments */
-  .logo,
-  .muni-logo {
-    width: 34px;
-    height: 34px;
-  }
+  .logo, .muni-logo { width: 38px; height: 38px; }
+  .logo-title h1 { font-size: 1rem; max-width: 50vw; text-align: center; }
 
-  header.site-header {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  .logo-title h1 {
-    font-size: 1.25rem;
-    background: none;
-    -webkit-text-fill-color: #fff;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,.5);
-    margin: 0 8px;
-  }
-
-  /* Hamburger button placement */
-  .nav-toggle {
-    right: 16px;
-    top: 14px;
-    display: block;
-  }
-
+  .nav-toggle { display: block; }
   nav {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 10px;
+    display: none; position: absolute; top: 60px; right: 10px;
     background: rgba(22,80,58,0.98);
-    border-radius: 10px;
-    padding: 0.8rem 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    z-index: 40;
+    border-radius: 10px; padding: 0.8rem 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25); z-index: 40;
   }
-
-  nav.open {
-    display: block;
-  }
-
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
+  nav.open { display: block; }
+  nav ul { display: flex; flex-direction: column; gap: 0.8rem; }
 }
 
 /* =========================================
-   DESKTOP / LAPTOP STYLES
+   DESKTOP / LAPTOP
    ========================================= */
 @media (min-width: 901px) {
-  header.site-header {
-    padding: 12px 0 10px;
-  }
-
-  .logo-title {
-    gap: 12px;
-  }
-
-  .logo,
-  .muni-logo {
-    width: 50px;
-    height: 50px;
-  }
-
-  .logo-title h1 {
-    font-size: 1.9rem;
-    margin: 0 5px;
-  }
+  /* Header = two rows: (logos+title) on top, nav below */
+  header.site-header { padding: 12px 0 10px; }
+  .logo-title { gap: 12px; }
+  .logo, .muni-logo { width: 50px; height: 50px; }
+  .logo-title h1 { font-size: 1.8rem; margin: 0 5px; }
 
   #main-nav {
-    display: block !important;
-    position: static;
-    margin-top: 6px;
-    box-shadow: none;
-    background: transparent;
+    display: block !important; position: static; margin-top: 6px;
+    box-shadow: none; background: transparent;
   }
+  #main-nav ul { display: inline-flex; gap: 24px; }
 
-  #main-nav ul {
-    display: inline-flex;
-    gap: 24px;
-  }
-
-  .nav-toggle {
-    display: none !important;
-  }
+  .nav-toggle { display: none !important; }
 }
 
 @media (min-width: 1300px) {
-  #main-nav ul {
-    gap: 28px;
-  }
-
-  .logo-title h1 {
-    font-size: 2.05rem;
-  }
+  #main-nav ul { gap: 28px; }
+  .logo-title h1 { font-size: 1.9rem; }
 }
