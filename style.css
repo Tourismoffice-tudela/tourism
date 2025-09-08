@@ -47,62 +47,99 @@ h2 {
 }
 
 /* =========================================
-   HEADER & LOGOS
+   HEADER & LOGOS FIXED LAYOUT
    ========================================= */
 header.site-header {
   background: var(--main-green);
   color: var(--white);
-  padding: 10px 0;
+  padding: 8px 12px;
   position: sticky;
   top: 0;
   z-index: 50;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 
-  /* FLEX container */
+  /* Arrange horizontally */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
+/* Container for logos and title */
 .logo-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  flex: 1;
   position: relative;
-  min-width: 0;
-  max-width: 90vw;
+  text-align: center;
 }
 
+/* Logos on left and right */
 .logo,
 .muni-logo {
-  height: 60px;
-  width: 60px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--white);
   object-fit: cover;
+  flex-shrink: 0;
 }
 
-.logo { border: 2px solid var(--gold); }
+.logo {
+  border: 2px solid var(--gold);
+  margin-right: 8px;
+}
+
 .muni-logo {
   border: 2px solid #fff84f;
   box-shadow: 0 2px 10px #0001;
+  margin-left: 8px;
 }
 
+/* Center title text */
 .logo-title h1 {
   font-family: "Poppins","Montserrat","Segoe UI",Arial,sans-serif;
   font-weight: 800;
+  font-size: 1.3rem;
   letter-spacing: 1px;
-  font-size: 2rem;
-  line-height: 1.1;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  color: var(--white);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
+  margin: 0 10px;
+  flex: 1;
 }
 
+/* Hamburger button placement */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+  z-index: 70;
+}
+
+.nav-toggle .bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px auto;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform .25s, opacity .25s;
+}
+
+/* Hamburger animation to X */
+.nav-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.open .bar:nth-child(2) { opacity: 0; }
+.nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 /* =========================================
-   NAVIGATION (DESKTOP)
+   NAVIGATION MENU
    ========================================= */
 nav { text-align: center; }
 
@@ -122,37 +159,6 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active { color: var(--gold); }
-
-/* =========================================
-   HAMBURGER (3-SLASH) BUTTON
-   ========================================= */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
-  width: 44px;
-  height: 44px;
-  position: absolute;
-  right: 1rem;
-  top: 0.9rem;
-  cursor: pointer;
-  z-index: 60;
-}
-
-.nav-toggle .bar {
-  display: block;
-  width: 26px;
-  height: 3px;
-  margin: 5px auto;
-  background: var(--white);
-  border-radius: 2px;
-  transition: transform .25s, opacity .25s;
-}
-
-/* Animate to X when open */
-.nav-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.nav-toggle.open .bar:nth-child(2) { opacity: 0; }
-.nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* =========================================
    HERO SECTION
@@ -279,47 +285,59 @@ footer {
 }
 
 /* =========================================
-   RESPONSIVE
+   MOBILE VIEW FIX
    ========================================= */
-@media (max-width: 900px) {
-  #hero h2 { font-size: 2rem; }
-}
-
 @media (max-width: 760px) {
-  /* make logos & title smaller */
-  .logo, .muni-logo { width: 44px; height: 44px; }
-  .logo-title { 
-    gap: 10px; 
-    max-width: calc(100vw - 110px); 
-    flex-direction: column; /* ✅ Stack vertically */
+  /* Resize logos */
+  .logo,
+  .muni-logo {
+    width: 38px;
+    height: 38px;
   }
+
   .logo-title h1 {
-    font-size: 1.2rem;
-    white-space: normal; /* allow wrapping */
+    font-size: 1rem;
+    max-width: 50vw;
     text-align: center;
   }
 
-  /* convert nav to drawer */
-  .nav-toggle { display: block; }
+  /* Hamburger visible on mobile */
+  .nav-toggle {
+    display: block;
+  }
+
   nav {
     display: none;
     position: absolute;
-    top: 64px;
+    top: 60px;
     right: 10px;
     background: var(--main-green);
     border-radius: 10px;
-    padding: .8rem 1rem;
+    padding: 0.8rem 1rem;
     box-shadow: 0 10px 30px rgba(0,0,0,.2);
     z-index: 40;
   }
-  nav.open { display: block; }
-  nav ul { display: flex; flex-direction: column; gap: .8rem; }
+
+  nav.open {
+    display: block;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 }
 
 @media (max-width: 460px) {
-  .logo, .muni-logo { width: 38px; height: 38px; }
-  .logo-title h1 { font-size: 1.12rem; }
-  #hero { padding: 44px 5vw 32px; }
-  #hero h2 { font-size: 1.7rem; }
-  #hero p { font-size: .98rem; }
+  .logo,
+  .muni-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .logo-title h1 {
+    font-size: 0.9rem;
+    max-width: 48vw;
+  }
 }
