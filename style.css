@@ -47,7 +47,7 @@ h2 {
 }
 
 /* =========================================
-   HEADER & LOGOS FIXED LAYOUT
+   HEADER & LOGOS
    ========================================= */
 header.site-header {
   background: var(--main-green);
@@ -58,10 +58,10 @@ header.site-header {
   z-index: 50;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 
-  /* Arrange horizontally */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* Container for logos and title */
@@ -69,9 +69,10 @@ header.site-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   position: relative;
   text-align: center;
+  width: auto;
+  gap: 12px;
 }
 
 /* Logos on left and right */
@@ -87,13 +88,11 @@ header.site-header {
 
 .logo {
   border: 2px solid var(--gold);
-  margin-right: 8px;
 }
 
 .muni-logo {
   border: 2px solid #fff84f;
   box-shadow: 0 2px 10px #0001;
-  margin-left: 8px;
 }
 
 /* Center title text */
@@ -105,11 +104,11 @@ header.site-header {
   color: var(--white);
   white-space: nowrap;
   text-align: center;
-  margin: 0 10px;
+  margin: 0 5px;
   flex: 1;
 }
 
-/* Hamburger button placement */
+/* Hamburger button */
 .nav-toggle {
   display: none;
   background: transparent;
@@ -179,7 +178,7 @@ nav ul li a.active { color: var(--gold); }
 #hero h2 {
   font-size: 2.4rem;
   margin-bottom: 12px;
-  color: var(--gold); /* ✅ Text color yellow */
+  color: var(--gold);
 }
 
 #hero p {
@@ -288,7 +287,7 @@ footer {
    MOBILE VIEW FIX
    ========================================= */
 @media (max-width: 760px) {
-  /* Resize logos */
+  /* Resize logos for mobile */
   .logo,
   .muni-logo {
     width: 38px;
@@ -329,15 +328,67 @@ footer {
   }
 }
 
-@media (max-width: 460px) {
+/* =========================================
+   DESKTOP/LAPTOP HEADER CLEAN LAYOUT
+   ========================================= */
+@media (min-width: 901px) {
+  /* Header has 2 rows: logos + title, and nav below */
+  header.site-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0 6px;
+  }
+
+  /* Logos & title close together */
+  .logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: auto;
+  }
+
+  /* Adjusted logo size */
   .logo,
   .muni-logo {
-    width: 34px;
-    height: 34px;
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Title perfectly balanced between logos */
+  .logo-title h1 {
+    font-size: 1.8rem;
+    white-space: nowrap;
+    margin: 0 5px;
+    text-align: center;
+  }
+
+  /* Nav sits below logos */
+  #main-nav {
+    display: block !important;
+    position: static;
+    margin-top: 4px;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  #main-nav ul {
+    display: inline-flex;
+    gap: 24px;
+  }
+
+  /* Hide hamburger on desktop */
+  .nav-toggle { display: none !important; }
+}
+
+/* Extra wide screens adjustments */
+@media (min-width: 1300px) {
+  #main-nav ul {
+    gap: 28px;
   }
 
   .logo-title h1 {
-    font-size: 0.9rem;
-    max-width: 48vw;
+    font-size: 1.9rem;
   }
 }
