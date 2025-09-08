@@ -58,13 +58,12 @@ header.site-header {
   z-index: 50;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 
-  /* FLEX container para dili mag-overlap */
+  /* FLEX container */
   display: flex;
   align-items: center;
-  justify-content: center; /* center ang brand block */
+  justify-content: center;
 }
 
-/* Brand block (logo + title + muni logo) */
 .logo-title {
   display: flex;
   align-items: center;
@@ -97,8 +96,6 @@ header.site-header {
   font-size: 2rem;
   line-height: 1.1;
   text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-
-  /* prevent text overflow on mobile */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -289,10 +286,18 @@ footer {
 }
 
 @media (max-width: 760px) {
-  /* make logos & title smaller to avoid overlap */
+  /* make logos & title smaller */
   .logo, .muni-logo { width: 44px; height: 44px; }
-  .logo-title { gap: 10px; max-width: calc(100vw - 110px); }
-  .logo-title h1 { font-size: 1.35rem; }
+  .logo-title { 
+    gap: 10px; 
+    max-width: calc(100vw - 110px); 
+    flex-direction: column; /* ✅ Stack vertically */
+  }
+  .logo-title h1 {
+    font-size: 1.2rem;
+    white-space: normal; /* allow wrapping */
+    text-align: center;
+  }
 
   /* convert nav to drawer */
   .nav-toggle { display: block; }
