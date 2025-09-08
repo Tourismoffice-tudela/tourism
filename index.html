@@ -1,260 +1,83 @@
-/* =========================================
-   IMPORT GOOGLE FONTS
-   ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@700;800&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tudela Tourism Office</title>
 
-/* =========================================
-   COLOR VARIABLES
-   ========================================= */
-:root {
-  --main-green: #16503a;
-  --accent-green: #2e8c52;
-  --light-green: #c4e1cb;
-  --gold: #ffcc57;
-  --white: #fff;
-}
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.jpg" />
 
-/* =========================================
-   GLOBAL RESET
-   ========================================= */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Official Tudela Tourism Office website – Explore Tudela's natural wonders, accommodations, history, and culture in the Camotes Islands." />
+  <meta name="keywords" content="Tudela, Camotes, Cebu, Tourism, Bukilat Cave, Casa Del Rio, Tourist Spots" />
+  <meta name="author" content="Tudela Tourism Office" />
+</head>
+<body>
 
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--light-green);
-  color: var(--main-green);
-  min-height: 100vh;
-}
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo" />
+      <h1>Tudela Tourism Office</h1>
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
+    </div>
 
-main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+    <!-- Mobile Hamburger Toggle -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-h2 {
-  color: var(--accent-green);
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  text-align: center;
-  letter-spacing: 1px;
-}
+    <!-- Navigation Menu -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="touristspots.html">Tourist Spots</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-/* =========================================
-   HEADER (Tropical gradient + optional image)
-   ========================================= */
-header.site-header {
-  /* Gradient first, then optional header image (add header-bg.jpg if you like) */
-  background:
-    linear-gradient(135deg,
-      rgba(22,80,58,0.95) 0%,
-      rgba(255,204,87,0.90) 50%,
-      rgba(0,188,212,0.92) 100%),
-    url('header-bg.jpg') center/cover no-repeat;
-  color: var(--white);
-  padding: 10px 12px 8px;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero">
+      <h2>Discover the Beauty of Tudela, Camotes</h2>
+      <p>
+        Experience stunning caves, rich history, and warm hospitality in the heart of the Camotes Islands.
+      </p>
+      <a href="touristspots.html" class="cta-btn" aria-label="View Tourist Spots">Explore Tourist Spots</a>
+    </section>
 
-/* Group holding [logo] Title [seal] */
-.logo-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;              /* tighter look: logos closer to title */
-  width: auto;
-  text-align: center;
-}
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about">
+      <h2>About Tudela</h2>
+      <p>
+        Tudela is one of the four municipalities in the Camotes Islands, part of Cebu Province in the Philippines.
+        Known for its natural attractions, friendly locals, and vibrant culture, Tudela offers a peaceful retreat
+        for travelers who want to experience authentic island life.
+      </p>
+      <p>
+        From majestic caves like Bukilat Cave to serene coastal views, Tudela is a haven for nature lovers
+        and adventure seekers alike.
+      </p>
+    </section>
 
-/* Logos (left/right) */
-.logo, .muni-logo {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--white);
-  object-fit: cover;
-  flex-shrink: 0;
-}
-.logo { border: 2px solid var(--gold); }
-.muni-logo { border: 2px solid #fff84f; box-shadow: 0 2px 10px #0001; }
+  </main>
 
-/* Center title */
-.logo-title h1 {
-  font-family: "Poppins","Montserrat","Segoe UI",Arial,sans-serif;
-  font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  color: var(--white);
-  white-space: nowrap;
-  text-align: center;
-  margin: 0 5px;
-  flex: 1;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.55);
-}
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &copy; 2025 Tudela Tourism Office. All rights reserved.
+  </footer>
 
-/* Hamburger button (mobile) */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
-  width: 44px; height: 44px;
-  position: absolute; right: 12px; top: 12px;
-  cursor: pointer; z-index: 70;
-}
-.nav-toggle .bar {
-  display: block; width: 26px; height: 3px; margin: 5px auto;
-  background: var(--white); border-radius: 2px;
-  transition: transform .25s, opacity .25s;
-}
-.nav-toggle.open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
-.nav-toggle.open .bar:nth-child(2){ opacity: 0; }
-.nav-toggle.open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
-
-/* =========================================
-   NAVIGATION
-   ========================================= */
-nav { text-align: center; }
-nav ul { list-style: none; display: inline-flex; gap: 30px; }
-nav ul li a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  padding-bottom: 3px;
-  transition: color 0.2s, border-color 0.2s;
-  border-bottom: 2px solid transparent;
-}
-nav ul li a:hover,
-nav ul li a.active { color: #164; border-color: var(--gold); }
-
-/* =========================================
-   HERO
-   ========================================= */
-#hero {
-  text-align: center;
-  padding: 60px 5vw 40px;
-  background: linear-gradient(135deg, #198754 70%, #0c2e24 100%);
-  color: var(--white);
-  border-radius: 30px;
-  margin: 0 auto 2rem;
-  box-shadow: 0 8px 30px rgba(22,80,58,0.13);
-  max-width: 900px;
-}
-#hero h2 { font-size: 2.4rem; margin-bottom: 12px; color: var(--gold); }
-#hero p { max-width: 640px; margin: 0 auto 18px; font-size: 1.05rem; opacity: .95; }
-.cta-btn, #hero .cta-btn {
-  display: inline-block; background: var(--gold); color: var(--main-green);
-  padding: 12px 22px; border-radius: 30px; font-weight: 800; text-decoration: none;
-  transition: transform .12s ease, background .2s ease, box-shadow .2s;
-  box-shadow: 0 8px 18px rgba(0,0,0,.18);
-}
-.cta-btn:hover { background: #ffd970; transform: translateY(-1px); }
-
-/* =========================================
-   ABOUT
-   ========================================= */
-#about { max-width: 950px; margin: 2rem auto; }
-#about p { line-height: 1.8; font-size: 1.05rem; }
-
-/* =========================================
-   SPOTS GRID
-   ========================================= */
-#spots { max-width: 1000px; margin: 2rem auto; }
-.spots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 1.4rem;
-}
-.spot-card {
-  background: #fff; border-radius: 14px; overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  text-decoration: none; color: inherit;
-  transition: transform .2s, box-shadow .2s;
-}
-.spot-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
-.spot-card img { width: 100%; height: 180px; object-fit: cover; }
-.spot-content { padding: 1rem; }
-.spot-content h3 { color: var(--main-green); margin-bottom: .4rem; }
-
-/* =========================================
-   CONTACT
-   ========================================= */
-#contact {
-  background: url('contactbg.jpg') center/cover no-repeat;
-  padding: 2rem 1rem; color: var(--white); text-align: center;
-  border-radius: 12px; max-width: 800px; margin: 2rem auto; position: relative;
-}
-#contact h2 { color: var(--gold); margin-bottom: 1rem; }
-#contact form { display: flex; flex-direction: column; gap: .8rem; max-width: 420px; margin: 0 auto; }
-#contact input, #contact textarea {
-  padding: 10px; border: none; border-radius: 8px; font-size: 1rem;
-  background: rgba(255,255,255,0.9); color: #000;
-}
-#contact textarea::placeholder, #contact input::placeholder { color: #333; }
-#contact button {
-  padding: 10px 14px; background: var(--gold); color: var(--main-green);
-  border: none; border-radius: 8px; font-weight: 800; cursor: pointer; transition: background .2s;
-}
-#contact button:hover { background: var(--accent-green); color: #fff; }
-
-/* =========================================
-   FOOTER (Deep tropical gradient)
-   ========================================= */
-footer {
-  background: linear-gradient(90deg, #0c2e24, #198754);
-  color: var(--white);
-  text-align: center;
-  padding: 18px 0;
-  margin-top: 3rem;
-  border-top: 3px solid var(--gold);
-  border-radius: 14px 14px 0 0;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
-}
-footer a { color: var(--gold); text-decoration: none; font-weight: 600; }
-footer a:hover { color: #ffd970; }
-
-/* =========================================
-   MOBILE
-   ========================================= */
-@media (max-width: 760px) {
-  .logo, .muni-logo { width: 38px; height: 38px; }
-  .logo-title h1 { font-size: 1rem; max-width: 50vw; text-align: center; }
-
-  .nav-toggle { display: block; }
-  nav {
-    display: none; position: absolute; top: 60px; right: 10px;
-    background: rgba(22,80,58,0.98);
-    border-radius: 10px; padding: 0.8rem 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,.25); z-index: 40;
-  }
-  nav.open { display: block; }
-  nav ul { display: flex; flex-direction: column; gap: 0.8rem; }
-}
-
-/* =========================================
-   DESKTOP / LAPTOP
-   ========================================= */
-@media (min-width: 901px) {
-  /* Header = two rows: (logos+title) on top, nav below */
-  header.site-header { padding: 12px 0 10px; }
-  .logo-title { gap: 12px; }
-  .logo, .muni-logo { width: 50px; height: 50px; }
-  .logo-title h1 { font-size: 1.8rem; margin: 0 5px; }
-
-  #main-nav {
-    display: block !important; position: static; margin-top: 6px;
-    box-shadow: none; background: transparent;
-  }
-  #main-nav ul { display: inline-flex; gap: 24px; }
-
-  .nav-toggle { display: none !important; }
-}
-
-@media (min-width: 1300px) {
-  #main-nav ul { gap: 28px; }
-  .logo-title h1 { font-size: 1.9rem; }
-}
+  <!-- ===== SCRIPTS ===== -->
+  <script src="main.js"></script>
+</body>
+</html>
