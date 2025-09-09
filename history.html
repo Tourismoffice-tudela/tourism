@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tudela Tourism Office – History</title>
-  <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific styles -->
+  <!-- Global styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.jpg" />
+
+  <!-- Preload page background for faster paint -->
+  <link rel="preload" href="historybg.jpg" as="image" />
+
   <style>
     /* Full-page background for this history page */
     body.history-page {
@@ -22,21 +27,30 @@
       color: #fff;
       border-radius: 14px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+
+      /* Reading-friendly styles */
+      font-family: "Times New Roman", Times, serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
     }
 
+    /* Headings remain clean and bold */
     #history h2 {
       color: #ffcc57; /* gold */
       text-align: center;
       margin-bottom: 1rem;
+      font-family: 'Poppins', Arial, sans-serif;
     }
 
+    /* Paragraph styles for readability */
     #history p {
-      line-height: 1.7;
-      font-size: 1.06rem;
+      text-align: justify; /* Justified text for a clean look */
       margin: 0.7rem 0;
       color: #f6fff8;
     }
 
+    /* Links inside the text */
     #history a {
       color: #ffcc57;
       text-decoration: underline;
@@ -48,49 +62,86 @@
 
     /* small spacing fix below header */
     main { padding-top: 1.2rem; }
+
+    /* Responsive adjustments for mobile */
+    @media (max-width: 600px) {
+      .history-wrap {
+        padding: 1.2rem;
+        font-size: 1rem;
+      }
+      #history h2 {
+        font-size: 1.6rem;
+      }
+    }
   </style>
 </head>
 <body class="history-page">
-<header class="site-header">
-  <div class="logo-title">
-    <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
-    <h1>Tudela Tourism Office</h1>
-    <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
-  </div>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+      <h1>Tudela Tourism Office</h1>
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+    </div>
 
-  <!-- 3-slash / hamburger button -->
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-  </button>
+    <!-- 3-slash / hamburger button -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
 
-  <nav id="main-nav">
-    <ul>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="touristspots.html">Tourist Spots</a></li>
-      <li><a href="accommodation.html">Accommodation</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="history.html">History</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="touristspots.html">Tourist Spots</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="history.html" class="active">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-
+  <!-- ===== MAIN ===== -->
   <main>
     <section id="history">
       <div class="history-wrap">
         <h2>History</h2>
 
-        <p>Tudela is a fifth class town and is one of the four municipalities in the Camotes group of island. The Camotes group of islands. The Camotes group, which includes the island of Leyte to the east, Cebu to the weast and farther south, bohol. Camotes, especially Pilar island, is geographically closer to Ormoc City in Leyte than to Danao City in Cebu. But the entire Camotes is administratively under Cebu Province and belongs to its fifth congressional district, which also includes Danao City and the towns of Compostela, Carmen and Sogod in the mainland.</p>
+        <p>
+          Tudela is a fifth class town and is one of the four municipalities in the Camotes group of islands. 
+          The Camotes group, which includes the island of Leyte to the east, Cebu to the west and farther south, and Bohol, 
+          is known for its rich cultural heritage and natural wonders. Camotes, especially Pilar Island, 
+          is geographically closer to Ormoc City in Leyte than to Danao City in Cebu. 
+          However, the entire Camotes group is administratively under Cebu Province and belongs to its fifth congressional district, 
+          which also includes Danao City and the towns of Compostela, Carmen, and Sogod in the mainland.
+        </p>
 
-        <p>Tudela shares with the municipality of Poro of the island also known as Poro. The other camotes towns are San Francisco in Pacijan island and Pilar and Ponson island. Poro used to be the mother municipality until Tudela split from it and was declared a town from the Spanish colonial government in 1892. The two towns were momentarily merged again under the American colonial regime but were finally separated in 1910.</p>
+        <p>
+          Tudela shares the island of Poro with the municipality of Poro, which was historically the mother town. 
+          The other Camotes towns are San Francisco on Pacijan Island and Pilar on Ponson Island. 
+          Tudela separated from Poro and was officially declared a town by the Spanish colonial government in 1892. 
+          During the American colonial period, the two towns were briefly merged again but were finally separated in 1910.
+        </p>
 
-        <p>The name Poro is widely believed to be a corruption of the Waray word puro or island (pulo in the Cebuano language). Waray is spoken in Samar and a portion of Leyte island, a point used in bolstering the theory that Camotes’ earl settlers were from those places. Residents of Poro town themselves speak a distinct language that is a mixture of Waray, Iilonggo, Bol-anon, Cebuano and even Surigaonon, with a unique use of the letter “z” in some words. Unlike Poro, however residents of Tudela largerly speak the Cebuano language.</p>
+        <p>
+          The name "Poro" is believed to have originated from the Waray word "puro," meaning "island" 
+          (similar to "pulo" in Cebuano). This suggests that early settlers of Camotes may have come from Samar and parts of Leyte, 
+          where Waray is spoken. Residents of Poro speak a unique language that is a blend of Waray, Ilonggo, Bol-anon, Cebuano, 
+          and even Surigaonon, with distinct features like the use of the letter "z" in some words. 
+          In contrast, Tudela residents primarily speak Cebuano.
+        </p>
 
-        <p>Tudela, or at leat the area in what is now the poblacion, used to be known as Tag-anito, an obvious reference to the practice of the early villagers of worshipping anitos or spirits. When the area was declared a visita by a Spanish authorities, it retained the name, even until it was declared a town in May 1892. In August of the same year, however; town resident, at the instigation of Recollect priest Ramon.</p>
+        <p>
+          Historically, the area now known as Tudela’s poblacion was called Tag-anito, 
+          a reference to the ancient practice of worshipping "anitos" or spirits. 
+          When the area was declared a visita by the Spanish authorities, it retained this name until it was officially declared a town in May 1892. 
+          In August of the same year, significant changes occurred under the guidance of Recollect priest Ramon.
+        </p>
 
-        <p><strong>Learn more about the history of Tudela:</strong>
-          <a href="https://drive.google.com/file/d/1ZTjqdqx31tTX_SGq8dEG1PSAa3L7Q2MK/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <p>
+          <strong>Learn more about the history of Tudela:</strong>
+          <a href="https://drive.google.com/file/d/1ZTjqdqx31tTX_SGq8dEG1PSAa3L7Q2MK/view?usp=sharing" 
+             target="_blank" rel="noopener noreferrer">
             View full document
           </a>
         </p>
@@ -98,11 +149,12 @@
     </section>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
     &copy; 2025 Tudela Tourism Office. All rights reserved.
   </footer>
 
+  <!-- ===== SCRIPTS ===== -->
   <script src="main.js"></script>
 </body>
 </html>
-
