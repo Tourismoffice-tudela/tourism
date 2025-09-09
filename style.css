@@ -68,7 +68,7 @@ header.site-header {
   gap: 12px;
   width: auto;
   text-align: center;
-  padding-right: 56px; /* RESERVED space for hamburger on the right */
+  padding-right: 56px;
 }
 
 /* Logos (left/right) */
@@ -106,8 +106,8 @@ header.site-header {
   width: 44px;
   height: 44px;
   position: absolute;
-  right: 12px;       /* stays at right but with safe spacing */
-  top: 16px;         /* balanced vertical alignment */
+  right: 12px;
+  top: 16px;
   cursor: pointer;
   z-index: 70;
 }
@@ -156,7 +156,7 @@ nav ul li a.active { color: #164; border-color: var(--gold); }
 }
 #hero h2 { font-size: 2.4rem; margin-bottom: 12px; color: var(--gold); }
 #hero p { max-width: 640px; margin: 0 auto 18px; font-size: 1.05rem; opacity: .95; }
-.cta-btn, #hero .cta-btn {
+.cta-btn {
   display: inline-block; background: var(--gold); color: var(--main-green);
   padding: 12px 22px; border-radius: 30px; font-weight: 800; text-decoration: none;
   transition: transform .12s ease, background .2s ease, box-shadow .2s;
@@ -165,56 +165,45 @@ nav ul li a.active { color: #164; border-color: var(--gold); }
 .cta-btn:hover { background: #ffd970; transform: translateY(-1px); }
 
 /* =========================================
-   ABOUT
+   ABOUT SECTION WITH BACKGROUND IMAGE
    ========================================= */
-#about { max-width: 950px; margin: 2rem auto; }
-#about p { line-height: 1.8; font-size: 1.05rem; }
-
-/* =========================================
-   SPOTS GRID
-   ========================================= */
-#spots { max-width: 1000px; margin: 2rem auto; }
-.spots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 1.4rem;
-}
-.spot-card {
-  background: #fff; border-radius: 14px; overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  text-decoration: none; color: inherit;
-  transition: transform .2s, box-shadow .2s;
-}
-.spot-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
-.spot-card img { width: 100%; height: 180px; object-fit: cover; }
-.spot-content { padding: 1rem; }
-.spot-content h3 { color: var(--main-green); margin-bottom: .4rem; }
-
-/* =========================================
-   CONTACT
-   ========================================= */
-#contact {
-  background: url('contactbg.jpg') center/cover no-repeat;
-  padding: 2rem 1rem;
-  color: var(--white);
-  text-align: center;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: 2rem auto;
+#about {
   position: relative;
+  max-width: 950px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: url('aboutbg.jpg') center/cover no-repeat;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  color: #fff;
 }
-#contact h2 { color: var(--gold); margin-bottom: 1rem; }
-#contact form { display: flex; flex-direction: column; gap: .8rem; max-width: 420px; margin: 0 auto; }
-#contact input, #contact textarea {
-  padding: 10px; border: none; border-radius: 8px; font-size: 1rem;
-  background: rgba(255,255,255,0.9); color: #000;
+
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 14px;
+  z-index: 0;
 }
-#contact textarea::placeholder, #contact input::placeholder { color: #333; }
-#contact button {
-  padding: 10px 14px; background: var(--gold); color: var(--main-green);
-  border: none; border-radius: 8px; font-weight: 800; cursor: pointer; transition: background .2s;
+
+#about h2,
+#about p {
+  position: relative;
+  z-index: 1;
 }
-#contact button:hover { background: var(--accent-green); color: #fff; }
+
+#about h2 {
+  color: #ffcc57;
+}
+
+#about p {
+  color: #f6fff8;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+   text-align: justify; 
+}
 
 /* =========================================
    FOOTER
@@ -236,21 +225,9 @@ footer a:hover { color: #ffd970; }
    MOBILE FIXES
    ========================================= */
 @media (max-width: 760px) {
-  /* show hamburger */
-  .nav-toggle {
-    display: block;
-    right: 16px;        /* push slightly inward from edge */
-    top: 18px;          /* slight vertical padding */
-  }
-
-  /* shrink logo area and text */
+  .nav-toggle { display: block; right: 16px; top: 18px; }
   .logo, .muni-logo { width: 38px; height: 38px; }
   .logo-title h1 { font-size: 1rem; max-width: 50vw; }
-
-  /* tighten right logo margin */
-  .logo-title { padding-right: 56px; }
-
-  /* mobile dropdown nav */
   nav {
     display: none;
     position: absolute;
@@ -272,23 +249,15 @@ footer a:hover { color: #ffd970; }
 }
 
 /* =========================================
-   DESKTOP / LAPTOP
+   DESKTOP
    ========================================= */
 @media (min-width: 901px) {
   header.site-header { padding: 12px 0 10px; }
   .logo-title { gap: 12px; padding-right: 0; }
   .logo, .muni-logo { width: 50px; height: 50px; }
   .logo-title h1 { font-size: 1.8rem; margin: 0 5px; }
-
-  #main-nav {
-    display: block !important;
-    position: static;
-    margin-top: 6px;
-    box-shadow: none;
-    background: transparent;
-  }
+  #main-nav { display: block !important; position: static; margin-top: 6px; background: transparent; }
   #main-nav ul { display: inline-flex; gap: 24px; }
-
   .nav-toggle { display: none !important; }
 }
 
