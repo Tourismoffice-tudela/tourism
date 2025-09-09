@@ -13,8 +13,28 @@
   <meta name="description" content="Official Tudela Tourism Office website – Explore Tudela's natural wonders, accommodations, history, and culture in the Camotes Islands." />
   <meta name="keywords" content="Tudela, Camotes, Cebu, Tourism, Bukilat Cave, Casa Del Rio, Tourist Spots" />
   <meta name="author" content="Tudela Tourism Office" />
+
+  <!-- (Optional) Preload About background for faster paint -->
+  <link rel="preload" href="aboutbg.jpg" as="image" />
 </head>
 <body>
+
+  <!-- ===== VIDEO OVERLAY (shows first) ===== -->
+  <div id="video-overlay" aria-hidden="true">
+    <div class="video-container" role="dialog" aria-label="Tudela Tourism Promo Video">
+      <!-- IMPORTANT: enablejsapi=1 so JS can detect when it ends -->
+      <iframe
+        id="promo-video"
+        src="https://www.youtube.com/embed/MtuUqX_as6U?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+        title="Tudela Tourism Promo Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+
+      <button id="skip-btn" type="button" aria-label="Skip intro video">Skip&nbsp;→</button>
+    </div>
+  </div>
 
   <!-- ===== HEADER ===== -->
   <header class="site-header">
@@ -77,7 +97,9 @@
     &copy; 2025 Tudela Tourism Office. All rights reserved.
   </footer>
 
-  <!-- ===== SCRIPTS ===== -->
+  <!-- YouTube IFrame API (needed to detect video end) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- Global Site JS -->
   <script src="main.js"></script>
 </body>
 </html>
