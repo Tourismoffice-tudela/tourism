@@ -8,16 +8,16 @@
   <!-- Main Global Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Optional: Preload for faster background rendering -->
+  <!-- Preload background image -->
   <link rel="preload" href="contactbg.jpg" as="image">
 
   <!-- Contact Page Specific Styles -->
   <style>
-    /* ===== Contact Section Styling ===== */
+    /* ===== Contact Section ===== */
     #contact {
       background: url('contactbg.jpg') center/cover no-repeat;
       padding: 2rem 1rem;
-      color: var(--white);
+      color: #16503a; /* Dark green text for better readability */
       text-align: center;
       border-radius: 12px;
       max-width: 800px;
@@ -26,7 +26,8 @@
     }
 
     #contact h2 {
-      color: var(--gold);
+      color: #ffcc57; /* Gold heading */
+      font-weight: 800;
       margin-bottom: 1rem;
     }
 
@@ -35,6 +36,7 @@
       margin: 0 auto 1rem;
       font-size: 1rem;
       line-height: 1.5;
+      color: #16503a; /* Dark green paragraph text */
     }
 
     /* ===== Contact Form ===== */
@@ -52,32 +54,35 @@
       border: none;
       border-radius: 8px;
       font-size: 1rem;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95); /* Slight transparency */
       color: #000;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
-    #contact textarea::placeholder,
-    #contact input::placeholder {
-      color: #333;
+    /* Placeholder text styling */
+    #contact input::placeholder,
+    #contact textarea::placeholder {
+      color: #555; /* Darker gray for better visibility */
     }
 
+    /* ===== Send Button ===== */
     #contact button {
       padding: 10px 14px;
-      background: var(--gold);
-      color: var(--main-green);
+      background: #ffcc57; /* Gold button */
+      color: #16503a; /* Dark green text */
+      font-weight: bold;
       border: none;
       border-radius: 8px;
-      font-weight: 800;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     #contact button:hover {
-      background: var(--accent-green);
-      color: #fff;
+      background: #2e8c52; /* Accent green on hover */
+      color: #fff; /* White text when hovered */
     }
 
-    /* ===== Facebook Icon & Link Fix ===== */
+    /* ===== Facebook Icon & Link ===== */
     .facebook-icon {
       width: 24px;
       height: 24px;
@@ -97,15 +102,15 @@
       font-weight: 600;
       color: #fff;
       text-decoration: none;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4);
       padding: 8px 14px;
       border-radius: 8px;
       transition: background 0.3s ease;
     }
 
     .social-link a:hover {
-      background: var(--gold);
-      color: var(--main-green);
+      background: #ffcc57;
+      color: #16503a;
     }
 
     /* ===== Privacy Note ===== */
@@ -140,7 +145,7 @@
       <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
     </div>
 
-    <!-- 3-slash / hamburger button -->
+    <!-- Hamburger Menu -->
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
