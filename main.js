@@ -1,11 +1,11 @@
 /* =========================================
    Tudela Tourism Office – Main JS
    - Mobile hamburger menu (3-slash toggle)
-   - Image slider for tourist spots & accommodations
+   - Image slider for any .slider-container
+   - Intro video overlay (YouTube, skippable)
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
-
   /* ---------------------------
      MOBILE NAV (HAMBURGER)
      --------------------------- */
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------------------------
      IMAGE SLIDERS
-     Handles all sliders with .slider-container
+     (Handles all sliders with .slider-container)
      --------------------------- */
   function initSlider(container) {
     const slides = container.querySelectorAll('.slider-img');
@@ -132,4 +132,76 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize all sliders on the page
   document.querySelectorAll('.slider-container').forEach(initSlider);
+
+  /* ---------------------------
+     INTRO VIDEO OVERLAY (YouTube)
+     - Shows once per session (skips if already dismissed)
+     - Skippable with button or when video ends
+     --------------------------- */
+  const overlay = document.getElementById('video-overlay');
+  const skipBtn = document.getElementById('skip-btn');
+
+  const hideOverlay = () => {
+    if (!overlay) return;
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden', 'true');
+    try { sessionStorage.setItem('promoDismissed', '1'); } catch (_) {}
+  };
+
+  // If already dismissed in this session, hide immediately
+  try {
+    if (sessionStorage.getItem('promoDismissed') === '1') {
+      if (overlay) overlay.style.display = 'none';
+    }
+  } catch (_) {
+    /* ignore storage errors (private mode etc.) */
+  }
+
+  // Skip button
+  if (skipBtn) {
+    skipBtn.addEventListener('click', () => {
+      // Stop video if API is ready
+      if (window.promoPlayer && typeof window.promoPlayer.stopVideo === 'function') {
+        window.promoPlayer.stopVideo();
+      }
+      hideOverlay();
+    });
+  }
+
+  // Also allow ESC key to skip
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay && overlay.style.display !== 'none') {
+      if (window.promoPlayer && typeof window.promoPlayer.stopVideo === 'function') {
+        window.promoPlayer.stopVideo();
+      }
+      hideOverlay();
+    }
+  });
 });
+
+/* -----------------------------------------
+   YOUTUBE IFRAME API glue
+   This function is called by the API script:
+   <script src="https://www.youtube.com/iframe_api"></script>
+----------------------------------------- */
+window.onYouTubeIframeAPIReady = function () {
+  const frame = document.getElementById('promo-video');
+  if (!frame) return;
+
+  // Create the player instance so we can detect when it ends
+  window.promoPlayer = new YT.Player('promo-video', {
+    events: {
+      'onStateChange': function (event) {
+        // When the video ends, hide overlay automatically
+        if (event.data === YT.PlayerState.ENDED) {
+          const overlay = document.getElementById('video-overlay');
+          if (overlay) {
+            try { sessionStorage.setItem('promoDismissed', '1'); } catch (_) {}
+            overlay.style.display = 'none';
+            overlay.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+    }
+  });
+};
