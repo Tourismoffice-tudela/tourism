@@ -5,126 +5,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop – Tudela Tourism Office</title>
 
-  <!-- Global styles -->
+  <!-- Global Styles + Navigation -->
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* SHOP SECTION WITH BACKGROUND */
-    #shop {
-      position: relative;
-      min-height: 100vh;
-      background: url("shopbg.jpg") center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem 1rem;
-    }
-
-    /* overlay for readability */
-    #shop::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.35); /* dark overlay */
-      z-index: 0;
-    }
-
-    /* clickable container */
-    .shop-link {
-      position: relative;
-      z-index: 1;
-      display: block;
-      max-width: 400px;
-      width: 90%;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .shop-link:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
-    }
-
-    .shop-link img {
-      width: 100%;
-      display: block;
-      border-radius: 16px;
-    }
-
-    /* text instruction below image */
-    .shop-text {
-      text-align: center;
-      margin-top: 1rem;
-      color: #fff;
-      position: relative;
-      z-index: 1;
-      font-size: 1.2rem;
-      background: rgba(0,0,0,0.4);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      max-width: 400px;
-    }
-
-    /* mobile adjustments */
-    @media (max-width: 700px) {
-      #shop {
-        padding: 1.5rem 1rem;
-        background-attachment: scroll;
-      }
-      .shop-text {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="shop.css" />
+  <link rel="icon" href="logo.jpg" />
 </head>
 <body>
   <!-- ===== HEADER ===== -->
- <header class="site-header">
-  <div class="logo-title">
-    <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
-    <h1>Tudela Tourism Office</h1>
-    <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
-  </div>
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="logo.jpg" alt="Tudela Tourism Office Logo" class="logo">
+      <h1>Tudela Tourism Office</h1>
+      <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo">
+    </div>
 
-  <!-- 3-slash / hamburger button -->
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-  </button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
 
-  <nav id="main-nav">
-    <ul>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="touristspots.html">Tourist Spots</a></li>
-      <li><a href="accommodation.html">Accommodation</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="history.html">History</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="touristspots.html">Tourist Spots</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- ===== MAIN ===== -->
   <main>
-    <section id="shop">
-      <!-- Clickable image linking to your Facebook post -->
-      <a href="https://www.facebook.com/share/p/1BC7SvwMK4/" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         class="shop-link">
-        <img src="shopbuy.jpg" alt="View our souvenir collection on Facebook">
-      </a>
-
-      <div class="shop-text">
-        Click the image to see our full souvenir collection on Facebook!
+    <!-- Hero Section -->
+    <section id="shop-hero">
+      <div class="hero-content">
+        <h2>Tudela Souvenir Shop</h2>
+        <p>Locally made T-shirts, keychains, ref magnets, and accessories perfect gifts and keepsakes from Tudela.</p>
       </div>
     </section>
+
+    <!-- Filter Buttons -->
+    <div class="filters" aria-label="Product categories">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="tshirt">T-Shirts</button>
+      <button class="filter-btn" data-filter="keychain">Keychains</button>
+      <button class="filter-btn" data-filter="magnet">Ref Magnets</button>
+      <button class="filter-btn" data-filter="accessories">Accessories</button>
+    </div>
+
+    <!-- Products -->
+    <section class="products" id="products">
+      <!-- T-Shirts -->
+      <article class="card" data-category="tshirt">
+        <img src="shopTshirt.jpg" alt="Island Print T-Shirt" loading="lazy">
+        <div class="body">
+          <h3>Tudela T-Shirt</h3>
+          <span class="badge">T-Shirt</span>
+          <div class="price">₱150</div>
+          <div class="cta">
+            <a class="btn btn-primary" target="_blank" href="https://www.facebook.com/share/p/1DThacVMEA/">Order on Facebook</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="tshirt">
+        <img src="shoplongsleeve.jpg" alt="Sunset Camotes Tee" loading="lazy">
+        <div class="body">
+          <h3>Tudela longsleeve</h3>
+          <span class="badge">T-Shirt</span>
+          <div class="price">₱200</div>
+          <div class="cta">
+            <a class="btn btn-primary" target="_blank" href="https://www.facebook.com/share/p/1DThacVMEA/">Order on Facebook</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Keychains -->
+      <article class="card" data-category="keychain">
+        <img src="shopkeychain.jpg" alt="Bukilat Cave Keychain" loading="lazy">
+        <div class="body">
+          <h3>Tudela Keychain</h3>
+          <span class="badge">Keychain</span>
+          <div class="price">₱20-30</div>
+          <div class="cta">
+            <a class="btn btn-primary" target="_blank" href="https://www.facebook.com/share/p/1NgjdUyfaE/">Order on Facebook</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ref Magnets -->
+      <article class="card" data-category="magnet">
+        <img src="shoprefmagnet.jpg" alt="Ref Magnet" loading="lazy">
+        <div class="body">
+          <h3>Tudela Ref Magnet</h3>
+          <span class="badge">Ref Magnet</span>
+          <div class="price">₱20</div>
+          <div class="cta">
+            <a class="btn btn-primary" target="_blank" href="https://www.facebook.com/share/p/1CWEwENYbM/">Order on Facebook</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Accessories -->
+      <article class="card" data-category="accessories">
+        <img src="shophandmadebasket.jpg" alt="Handmade Bracelet" loading="lazy">
+        <div class="body">
+          <h3>Tudela Handmade Bracelet</h3>
+          <span class="badge">Accessories</span>
+          <div class="price">₱20</div>
+          <div class="cta">
+            <a class="btn btn-primary" target="_blank" href="https://www.facebook.com/share/p/1ExbKTYENA/">Order on Facebook</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p class="note">
+      Prices shown are sample SRPs. For bulk orders or inquiries, click “Order on Facebook” to message our official page.
+    </p>
   </main>
 
   <!-- ===== FOOTER ===== -->
   <footer>&copy; 2025 Tudela Tourism Office. All rights reserved.</footer>
+
+  <!-- Global JS -->
   <script src="main.js"></script>
+
+  <!-- Filter Script -->
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+
+      cards.forEach(c => {
+        const show = f === 'all' || c.dataset.category === f;
+        c.style.display = show ? 'flex' : 'none';
+      });
+    }));
+  </script>
 </body>
 </html>
