@@ -1,58 +1,50 @@
 /* =========================================
    Tudela Tourism Office – Main JS
-   - Mobile hamburger menu (3-slash toggle)
-   - Image slider for any .slider-container
-   - Intro video overlay (YouTube, skippable)
-   ========================================= */
+   =========================================
+   Features:
+   1. Mobile hamburger menu toggle
+   2. Image sliders (.slider-container)
+   3. YouTube intro overlay with sound
+      - Skippable by button or ESC key
+      - Auto closes when video ends
+      - Shows once per session
+========================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
-  /* ---------------------------
-     MOBILE NAV (HAMBURGER)
-     --------------------------- */
+  /* ===============================
+     1. MOBILE NAV (HAMBURGER MENU)
+  =============================== */
   const navToggle = document.querySelector('.nav-toggle');
-  const mainNav   = document.getElementById('main-nav');
-  const navList   = mainNav ? mainNav.querySelector('ul') : null;
+  const mainNav = document.getElementById('main-nav');
+  const navList = mainNav ? mainNav.querySelector('ul') : null;
 
   const openMenu = () => {
-    if (!mainNav) return;
     mainNav.classList.add('open');
-    if (navToggle) {
-      navToggle.classList.add('open');
-      navToggle.setAttribute('aria-expanded', 'true');
-    }
+    navToggle.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('no-scroll');
   };
 
   const closeMenu = () => {
-    if (!mainNav) return;
     mainNav.classList.remove('open');
-    if (navToggle) {
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    }
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('no-scroll');
   };
 
-  const toggleMenu = () => {
-    if (!mainNav) return;
-    mainNav.classList.contains('open') ? closeMenu() : openMenu();
-  };
-
-  if (navToggle && mainNav && navList) {
-    // Initial ARIA state
-    navToggle.setAttribute('aria-expanded', 'false');
-
-    // Open/close on hamburger click
-    navToggle.addEventListener('click', toggleMenu);
-
-    // Close when a menu link is clicked
-    navList.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (mainNav.classList.contains('open')) closeMenu();
-      });
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      mainNav.classList.contains('open') ? closeMenu() : openMenu();
     });
 
-    // Close menu when clicking outside the header
+    // Close menu when a nav link is clicked
+    if (navList) {
+      navList.querySelectorAll('a').forEach(link =>
+        link.addEventListener('click', closeMenu)
+      );
+    }
+
+    // Close when clicking outside
     document.addEventListener('click', (e) => {
       const header = document.querySelector('header');
       if (!header.contains(e.target) && mainNav.classList.contains('open')) {
@@ -60,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Close menu on ESC key
+    // Close on ESC key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mainNav.classList.contains('open')) {
         closeMenu();
@@ -68,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Automatically close menu when resizing to desktop
+    // Close menu if resizing to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 700 && mainNav.classList.contains('open')) {
         closeMenu();
@@ -76,10 +68,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---------------------------
-     IMAGE SLIDERS
-     (Handles all sliders with .slider-container)
-     --------------------------- */
+  /* ===============================
+     2. IMAGE SLIDER FUNCTIONALITY
+  =============================== */
   function initSlider(container) {
     const slides = container.querySelectorAll('.slider-img');
     if (!slides.length) return;
@@ -87,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = container.querySelector('.slider-btn.prev');
     const nextBtn = container.querySelector('.slider-btn.next');
 
-    // Determine starting slide
     let current = Math.max(
       0,
       Array.from(slides).findIndex(img => img.classList.contains('active'))
@@ -110,14 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
       showSlide(current);
     };
 
-    // Prev and Next button controls
     if (prevBtn) prevBtn.addEventListener('click', goPrev);
     if (nextBtn) nextBtn.addEventListener('click', goNext);
 
-    // Clicking a slide advances to the next
+    // Click slide to go to next
     slides.forEach(img => img.addEventListener('click', goNext));
 
-    // Keyboard navigation support
+    // Keyboard navigation
     [prevBtn, nextBtn].forEach(btn => {
       if (!btn) return;
       btn.addEventListener('keydown', (e) => {
@@ -126,41 +115,39 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // Initialize the first slide
+    // Initialize
     showSlide(current);
   }
 
-  // Initialize all sliders on the page
+  // Initialize all sliders
   document.querySelectorAll('.slider-container').forEach(initSlider);
 
-  /* ---------------------------
-     INTRO VIDEO OVERLAY (YouTube)
-     - Shows once per session (skips if already dismissed)
-     - Skippable with button or when video ends
-     --------------------------- */
+  /* ===============================
+     3. YOUTUBE INTRO OVERLAY
+  =============================== */
   const overlay = document.getElementById('video-overlay');
   const skipBtn = document.getElementById('skip-btn');
 
+  // Hide the overlay
   const hideOverlay = () => {
-    if (!overlay) return;
     overlay.style.display = 'none';
-    overlay.setAttribute('aria-hidden', 'true');
-    try { sessionStorage.setItem('promoDismissed', '1'); } catch (_) {}
+    try {
+      sessionStorage.setItem('promoDismissed', '1'); // remember skip for this session
+    } catch (_) {}
   };
 
-  // If already dismissed in this session, hide immediately
+  // Check if user has already skipped in this session
   try {
     if (sessionStorage.getItem('promoDismissed') === '1') {
-      if (overlay) overlay.style.display = 'none';
+      overlay.style.display = 'none';
     }
   } catch (_) {
-    /* ignore storage errors (private mode etc.) */
+    // ignore if session storage not available
   }
 
-  // Skip button
+  // Skip button click
   if (skipBtn) {
     skipBtn.addEventListener('click', () => {
-      // Stop video if API is ready
       if (window.promoPlayer && typeof window.promoPlayer.stopVideo === 'function') {
         window.promoPlayer.stopVideo();
       }
@@ -168,9 +155,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Also allow ESC key to skip
+  // Allow ESC key to skip
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay && overlay.style.display !== 'none') {
+    if (e.key === 'Escape' && overlay.style.display !== 'none') {
       if (window.promoPlayer && typeof window.promoPlayer.stopVideo === 'function') {
         window.promoPlayer.stopVideo();
       }
@@ -179,26 +166,27 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-/* -----------------------------------------
-   YOUTUBE IFRAME API glue
-   This function is called by the API script:
-   <script src="https://www.youtube.com/iframe_api"></script>
------------------------------------------ */
+/* =========================================
+   YOUTUBE IFRAME API
+   - Detects when video ends
+   - Allows auto closing overlay
+========================================= */
 window.onYouTubeIframeAPIReady = function () {
   const frame = document.getElementById('promo-video');
   if (!frame) return;
 
-  // Create the player instance so we can detect when it ends
+  // Create player instance with sound
   window.promoPlayer = new YT.Player('promo-video', {
     events: {
       'onStateChange': function (event) {
-        // When the video ends, hide overlay automatically
+        // If video ends, close overlay
         if (event.data === YT.PlayerState.ENDED) {
           const overlay = document.getElementById('video-overlay');
           if (overlay) {
-            try { sessionStorage.setItem('promoDismissed', '1'); } catch (_) {}
+            try {
+              sessionStorage.setItem('promoDismissed', '1');
+            } catch (_) {}
             overlay.style.display = 'none';
-            overlay.setAttribute('aria-hidden', 'true');
           }
         }
       }
