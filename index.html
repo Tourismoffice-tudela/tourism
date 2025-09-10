@@ -14,18 +14,17 @@
   <meta name="keywords" content="Tudela, Camotes, Cebu, Tourism, Bukilat Cave, Casa Del Rio, Tourist Spots" />
   <meta name="author" content="Tudela Tourism Office" />
 
-  <!-- (Optional) Preload About background for faster paint -->
+  <!-- Preload About background -->
   <link rel="preload" href="aboutbg.jpg" as="image" />
 </head>
 <body>
 
-  <!-- ===== VIDEO OVERLAY (shows first) ===== -->
+  <!-- ===== VIDEO OVERLAY ===== -->
   <div id="video-overlay" aria-hidden="true">
     <div class="video-container" role="dialog" aria-label="Tudela Tourism Promo Video">
-      <!-- IMPORTANT: enablejsapi=1 so JS can detect when it ends -->
       <iframe
         id="promo-video"
-        src="https://www.youtube.com/embed/MtuUqX_as6U?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+        src="https://www.youtube.com/embed/MtuUqX_as6U?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
         title="Tudela Tourism Promo Video"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -44,14 +43,10 @@
       <img src="tudela-logo.jpg" alt="Municipality of Tudela Official Logo" class="muni-logo" />
     </div>
 
-    <!-- Mobile Hamburger Toggle -->
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
 
-    <!-- Navigation Menu -->
     <nav id="main-nav">
       <ul>
         <li><a href="#about" class="active">About</a></li>
@@ -67,7 +62,7 @@
   <!-- ===== MAIN CONTENT ===== -->
   <main>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO ===== -->
     <section id="hero">
       <h2>Discover the Beauty of Tudela, Camotes</h2>
       <p>
@@ -76,7 +71,7 @@
       <a href="touristspots.html" class="cta-btn" aria-label="View Tourist Spots">Explore Tourist Spots</a>
     </section>
 
-    <!-- ===== ABOUT SECTION ===== -->
+    <!-- ===== ABOUT ===== -->
     <section id="about">
       <h2>About Tudela</h2>
       <p>
@@ -89,7 +84,6 @@
         and adventure seekers alike.
       </p>
     </section>
-
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -97,9 +91,9 @@
     &copy; 2025 Tudela Tourism Office. All rights reserved.
   </footer>
 
-  <!-- YouTube IFrame API (needed to detect video end) -->
+  <!-- YouTube API -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <!-- Global Site JS -->
+  <!-- Global JS -->
   <script src="main.js"></script>
 </body>
 </html>
